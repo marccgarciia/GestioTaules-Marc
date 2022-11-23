@@ -10,7 +10,7 @@
 	$correo = $_POST['correo'];
 	$contrasenya = $_POST['contrasenya'];
 
-	$sentencia = $bd->prepare("UPDATE tbl_admin SET nombre = ?, correo = ?, contrasenya = ? WHERE id = ?;");
+	$sentencia = $bd->prepare("UPDATE tbl_camareros SET nombre = ?, correo = ?, contrasenya = ? WHERE id = ?;");
 	$resultado = $sentencia->execute([$nombre,$correo,$contrasenya, $id]);
 
 	if ($resultado === TRUE) {

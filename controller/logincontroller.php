@@ -3,7 +3,7 @@
 	include_once '../config/conexion.php';
 	$usuario = $_POST['txtUsu'];
 	$contrasena = $_POST['txtPass'];
-	$sentencia = $bd->prepare('select * from tbl_admin where correo = ? and contrasenya = ?;');
+	$sentencia = $bd->prepare('select * from tbl_camareros where correo = ? and contrasenya = ?;');
 	$sentencia->execute([$usuario, $contrasena]);
 	$datos = $sentencia->fetch(PDO::FETCH_OBJ);
 	//print_r($datos);

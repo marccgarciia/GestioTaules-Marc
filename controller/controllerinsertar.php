@@ -9,8 +9,8 @@
 	$contrasenya = $_POST['contrasenya'];
 
 
-	//$sentencia = $bd->prepare("INSERT INTO tbl_admin(nombre,correo,contrasenya) VALUES (?,?,?);");
-	$sentencia = $bd->prepare("INSERT INTO `tbl_admin`(`nombre`, `correo`, `contrasenya`) VALUES (?,?,?)");
+	//$sentencia = $bd->prepare("INSERT INTO tbl_camareros(nombre,correo,contrasenya) VALUES (?,?,?);");
+	$sentencia = $bd->prepare("INSERT INTO `tbl_camareros`(`nombre`, `correo`, `contrasenya`) VALUES (?,?,?)");
 
 	$resultado = $sentencia->execute([$nombre,$correo,$contrasenya]);
 

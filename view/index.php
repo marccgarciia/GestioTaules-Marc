@@ -7,7 +7,7 @@ if (!isset($_SESSION['nombre'])) {
 } elseif (isset($_SESSION['nombre'])) {
 
 	include '../config/conexion.php';
-	$sentencia = $bd->query("SELECT * FROM tbl_admin;");
+	$sentencia = $bd->query("SELECT * FROM tbl_camareros;");
 	$usuarios = $sentencia->fetchAll(PDO::FETCH_OBJ);
 	//print_r($usuarios);
 
@@ -43,9 +43,9 @@ if (!isset($_SESSION['nombre'])) {
 <body>
 	<div class="nav">
 		<div class="bienvenida">
-			<p>Bienvenido: <b><?php echo $_SESSION['nombre'] ?></b></p>
+			<p>Bienvenido/a: <b><?php echo $_SESSION['nombre'] ?></b></p>
 		</div>
-		<div>
+		<div class="cerrarsesion">
 			<a href="../controller/cerrarsesion.php">Cerrar Sesión</a>
 		</div>
 	</div>
@@ -56,11 +56,18 @@ if (!isset($_SESSION['nombre'])) {
 				<div>
 					<h4>USUARIOS</h4>
 				</div>
+
 				<div>
 					<a href="añadir.php" id="añadir"><i class="fa-solid fa-plus"></i></a>
 				</div>
-			</div>
 
+			</div>
+			<div>
+				<form autocomplete="off" action="" method="post" id="filtro">
+					<input type="text" name="filtro" id="buscar" placeholder="Buscar..." class="">
+					<button type="submit" class="buscar">Buscar</button>
+				</form>
+			</div>
 			<table class="table table-hover">
 				<tr>
 					<th scope="col">#</th>

@@ -7,7 +7,7 @@ if (!isset($_SESSION['nombre'])) {
 } elseif (isset($_SESSION['nombre'])) {
 
     include '../config/conexion.php';
-    $sentencia = $bd->query("SELECT * FROM tbl_admin;");
+    $sentencia = $bd->query("SELECT * FROM tbl_camareros;");
     $usuarios = $sentencia->fetchAll(PDO::FETCH_OBJ);
     //print_r($usuarios);
 

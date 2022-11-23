@@ -11,7 +11,7 @@ if (!isset($_SESSION['nombre'])) {
 	include '../config/conexion.php';
 	$id = $_GET['id'];
 
-	$sentencia = $bd->prepare("SELECT * FROM tbl_admin WHERE id = ?;");
+	$sentencia = $bd->prepare("SELECT * FROM tbl_camareros WHERE id = ?;");
 	$sentencia->execute([$id]);
 	$persona = $sentencia->fetch(PDO::FETCH_OBJ);
 	//print_r($persona);
