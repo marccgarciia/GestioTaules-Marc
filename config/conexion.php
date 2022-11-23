@@ -1,7 +1,7 @@
 <?php  
 	$contrasena = '';
 	$usuario = 'root';
-	$nombrebd= 'bd_gestionmesas';
+	$nombrebd= 'bd_gestiotaulesmarc';
 
 	try {
 		$bd = new PDO('mysql:host=localhost;dbname='.$nombrebd,$usuario,$contrasena,array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));

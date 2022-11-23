@@ -5,7 +5,7 @@
 
 	$codigo = $_GET['id'];
 	include '../config/conexion.php';
-	$sentencia = $bd->prepare("DELETE FROM tbl_admin WHERE id = ?;");
+	$sentencia = $bd->prepare("DELETE FROM tbl_camareros WHERE id = ?;");
 	$resultado = $sentencia->execute([$codigo]);
 
 	if ($resultado === TRUE) {

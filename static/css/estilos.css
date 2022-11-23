@@ -9,7 +9,28 @@
     list-style: none;
     box-sizing: border-box;
 }
+.buscar{
+    padding: 5px;
+    background-color: white;
+    border-radius: 3px;
+    border: 1px solid #D2B7A2;
+    color: #D2B7A2;
+}
+.buscar:hover{
+    background-color: #D2B7A2;
+    color: white;
+    transition: all 0.3s;
+}
+#buscar{
+    padding: 5px;
+    border-radius: 3px;
+    border: 1px solid #D2B7A2;
+    color: #757575;
+}
 
+#buscar:focus-visible{
+    outline-color: #D2B7A2;
+}
 .contenedor{
     display: flex;
     width: 100%;
@@ -17,6 +38,21 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+}
+
+.cerrarsesion a{
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 3px;
+    color: black;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.cerrarsesion a:hover{
+    background-color: black;
+    color: white;
+    transition: all 0.3s;
 }
 
 .formulario input{
