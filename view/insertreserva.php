@@ -54,7 +54,7 @@ if (!isset($_SESSION['nombre'])) {
         <div class="crud">
             <div class="mininav">
                 <div>
-                    <h4>AÑADIR</h4>
+                    <h4>AÑADIR RESERVA</h4>
                 </div>
                 <div>
                     <a href="index.php" id="añadir"><i class="fa-solid fa-arrow-left"></i></a>
@@ -62,26 +62,50 @@ if (!isset($_SESSION['nombre'])) {
             </div>
             <div class="form">
                 <!-- inicio insert -->
-                <form method="POST" action="../controller/controllerinsertar.php">
+                <form method="POST" action="../controller/controllerinsertreserva.php">
                     <table>
                         <tr>
                             <td>Nombre: </td>
                             <td><input type="text" name="nombre" placeholder="nombre"></td>
                         </tr>
                         <tr>
-                            <td>Correo: </td>
-                            <td><input type="text" name="correo" placeholder="correo"></td>
+                            <td>Dia: </td>
+                            <td><input type="date" name="dia" placeholder="dia"></td>
                         </tr>
                         <tr>
-                            <td>Contraseña: </td>
-                            <td><input type="text" name="contrasenya" placeholder="contrasenya"></td>
+                            <td>Hora: </td>
+                            <td><input  type="time" name="hora" list="tiempo"placeholder="hora"></td>
+                        </tr>
+                        <tr>
+                            <td>Personas: </td>
+                            <td><input type="text" name="personas" placeholder="personas"></td>
+                        </tr>
+                        <tr>
+                            <td>MESA: </td>
+                            <td><input type="text" name="mesa" placeholder="mesa fk"></td>
+                        </tr>
+                        <tr>
+                            <td>SALA: </td>
+                            <td><input type="text" name="sala" placeholder="sala fk"></td>
                         </tr>
                         <input type="hidden" name="oculto" value="1">
 
                         <tr>
-                            <td><input class="inputs" type="reset" name=""></td>
-                            <td><input class="inputs" type="submit" value="AÑADIR"></td>
+                            <td><input type="reset" name=""></td>
+                            <td><input type="submit" value="AÑADIR RESERVA"></td>
                         </tr>
+
+                        <datalist id="tiempo">
+                            <option value="12:00">
+                            <option value="13:00">
+                            <option value="14:00">
+                            <option value="15:00">
+                            <option value="20:00">
+                            <option value="21:00">
+                            <option value="22:00">
+                            <option value="23:00">
+                            <option value="00:00">
+                        </datalist>
                     </table>
                 </form>
                 <!-- fin insert-->

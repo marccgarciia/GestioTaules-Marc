@@ -57,7 +57,7 @@ if (!isset($_SESSION['nombre'])) {
 		<div class="crud">
 			<div class="mininav">
 				<div>
-					<h4>EDITAR USUARIOS</h4>
+					<h4>EDITAR</h4>
 				</div>
 				<div>
 					<a href="index.php" id="añadir"><i class="fa-solid fa-arrow-left"></i></a>
@@ -81,7 +81,7 @@ if (!isset($_SESSION['nombre'])) {
 						<tr>
 							<input type="hidden" name="oculto">
 							<input type="hidden" name="id" value="<?php echo $persona->id; ?>">
-							<td colspan="2"><input type="submit" value="EDITAR ALUMNO"></td>
+							<td colspan="2"><input type="submit" value="EDITAR"></td>
 						</tr>
 					</table>
 				</form>

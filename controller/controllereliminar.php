@@ -1,15 +1,19 @@
 <?php  
-	if (!isset($_GET['id'])) {
+//MOSTRAR ERRORES
+	if (!isset($_POST['id'])) {
 		exit();
 	}
 
-	$codigo = $_GET['id'];
+	$id = $_POST['id'];
+
 	include '../config/conexion.php';
 	$sentencia = $bd->prepare("DELETE FROM tbl_camareros WHERE id = ?;");
-	$resultado = $sentencia->execute([$codigo]);
+	$sentencia->bindParam(1, $id);
+	$resultado = $sentencia->execute();
 
-	if ($resultado === TRUE) {
-		header('Location: ../view/index.php');
+	if ($resultado) {
+		echo "OK";
+		// header('Location: ../view/index.php');
 	}else{
 		echo "Error";
 	}

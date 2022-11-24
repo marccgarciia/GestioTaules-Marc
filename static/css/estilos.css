@@ -21,6 +21,58 @@
     color: white;
     transition: all 0.3s;
 }
+
+.botonedelete{
+    padding: 5px;
+    color: black;
+    border: 1px solid #c32323;
+    background-color: white;
+    border-radius: 3px;
+    margin: 0px 8px;
+}
+.inputs{
+    border: 1px solid black;
+    border-radius: 3px;
+    background-color: white;
+}
+.inputs:hover{
+    color: white;
+    background-color: black;
+    transition: all 0.3s;
+}
+.botonmodificar{
+    padding: 5px;
+    color: black;
+    border: 1px solid #ACD2A2;
+    background-color: white;
+    border-radius: 3px;
+}
+
+.botonedelete:hover{
+    background-color: #c32323;
+    color: white;
+    transition: all 0.3s;
+}
+
+.botonmodificar:hover{
+    background-color: #ACD2A2;
+    color: white;
+    transition: all 0.3s;
+}
+.botones {
+    margin: 0px 8px 15px 0px;
+    color: black;
+    background-color: white;
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 5px;
+}
+.botones:hover{
+    background-color: black;
+    color: white;
+    transition: all 0.5s;
+}
+
 #buscar{
     padding: 5px;
     border-radius: 3px;
