@@ -1,3 +1,5 @@
 hoja de visualizacion de reservas y crud
 
-ajax en el crud
+falta ajax para borrar 
+
+eliminar el boton de añadir editar y eliminar en mesas y salas, ya que no se añadiran ni se eliminaran

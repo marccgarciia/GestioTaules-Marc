@@ -29,7 +29,7 @@ if (!isset($_SESSION['nombre'])) {
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Login</title>
+	<title>Principal</title>
 	<!-- BOOTSTRAP only -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 	<!--LINK ESTILOS-->
@@ -37,7 +37,6 @@ if (!isset($_SESSION['nombre'])) {
 	<!--LINK JS-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://kit.fontawesome.com/2b5286e1aa.js" crossorigin="anonymous"></script>
-	<script src="../static/js/index.js"></script>
 </head>
 
 <body>
@@ -54,7 +53,12 @@ if (!isset($_SESSION['nombre'])) {
 		<div class="crud">
 			<div class="mininav">
 				<div>
-					<h4>USUARIOS</h4>
+
+					<a href="mesa.php"><button class="botones">MESA</button></a>
+					<a href="reserva.php"><button class="botones">RESERVA</button></a>
+					<a href="sala.php"><button class="botones">SALA</button></a>
+					<h4>CAMAREROS</h4>
+
 				</div>
 
 				<div>
@@ -63,9 +67,8 @@ if (!isset($_SESSION['nombre'])) {
 
 			</div>
 			<div>
-				<form autocomplete="off" action="" method="post" id="filtro">
-					<input type="text" name="filtro" id="buscar" placeholder="Buscar..." class="">
-					<button type="submit" class="buscar">Buscar</button>
+				<form autocomplete="off" action="" method="post" id="frmbusqueda">
+					<input type="text" name="buscar" id="buscar" placeholder="Buscar..." class="">
 				</form>
 			</div>
 			<table class="table table-hover">
@@ -74,25 +77,11 @@ if (!isset($_SESSION['nombre'])) {
 					<th scope="col">NOMBRE</th>
 					<th scope="col">CORREO</th>
 					<th scope="col">CONTRASEÑA</th>
-					<th scope="col">EDITAR</th>
-					<th scope="col">ELIMINAR</th>
+					<th scope="col">OPCIONES</th>
 				</tr>
+				<tbody id="resultado">
 
-				<?php
-				$i = 1;
-				foreach ($usuarios as $user) {
-				?>
-					<tr>
-						<td><?php echo $i++; ?></td>
-						<td><?php echo $user->nombre; ?></td>
-						<td><?php echo $user->correo; ?></td>
-						<td><?php echo $user->contrasenya; ?></td>
-						<td><a href="editar.php?id=<?php echo $user->id; ?>">Editar</a></td>
-						<td><a href="../controller/controllereliminar.php?id=<?php echo $user->id; ?>">Eliminar</a></td>
-					</tr>
-				<?php
-				}
-				?>
+				</tbody>
 			</table>
 		</div>
 
@@ -100,3 +89,4 @@ if (!isset($_SESSION['nombre'])) {
 </body>
 
 </html>
+<script src="../static/js/index.js"></script>
