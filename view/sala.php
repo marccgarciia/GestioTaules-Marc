@@ -61,9 +61,9 @@ if (!isset($_SESSION['nombre'])) {
 		<div class="crud">
 			<div class="mininav">
 				<div>
-                <a href="mesa.php"><button class="botones">MESA</button></a>
-				<a href="reserva.php"><button class="botones">RESERVA</button></a>
-                <a href="index.php"><button class="botones">CAMAREROS</button></a>
+					<a href="mesa.php"><button class="botones">MESA</button></a>
+					<a href="reserva.php"><button class="botones">RESERVA</button></a>
+					<a href="index.php"><button class="botones">CAMAREROS</button></a>
 					<h4>SALAS</h4>
 
 				</div>
@@ -73,22 +73,22 @@ if (!isset($_SESSION['nombre'])) {
 					<input type="text" name="buscar" id="buscar" placeholder="Buscar..." class="">
 				</form>
 			</div>
-			<table class="table table-hover">
-				<tr>
-					<th scope="col">#</th>
-					<th scope="col">NOMBRE</th>
-					<th scope="col">CORREO</th>
-					<th scope="col">CONTRASEÑA</th>
+			<div class="over">
+				<table class="table table-hover">
+					<tr>
+						<th scope="col">#</th>
+						<th scope="col">NOMBRE</th>
+						<th scope="col">OCUPACIÓN</th>
+					</tr>
+					<tbody id="resultadosala">
 
-				</tr>
-				<tbody id="resultado">
-
-				</tbody>
-			</table>
+					</tbody>
+				</table>
+			</div>
 		</div>
 
 	</div>
 </body>
 
-</html>	
+</html>
 <script src="../static/js/index.js"></script>

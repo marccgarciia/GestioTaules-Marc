@@ -75,17 +75,19 @@ if (!isset($_SESSION['nombre'])) {
 					<input type="text" name="buscar" id="buscar" placeholder="Buscar..." class="">
 				</form>
 			</div>
-			<table class="table table-hover">
-				<tr>
-					<th scope="col">#</th>
-					<th scope="col">NOMBRE</th>
-					<th scope="col">ESTADO</th>
-					<th scope="col">SALA</th>
-				</tr>
-				<tbody id="resultado">
+			<div class="over">
+				<table class="table table-hover over">
+					<tr>
+						<th scope="col">#</th>
+						<th scope="col">NOMBRE</th>
+						<th scope="col">ESTADO</th>
+						<th scope="col">SALA</th>
+					</tr>
+					<tbody id="resultadomesa">
 
-				</tbody>
-			</table>
+					</tbody>
+				</table>
+			</div>
 		</div>
 
 	</div>

@@ -1,5 +1,6 @@
-hoja de visualizacion de reservas y crud
 
-falta ajax para borrar 
+hacer js que en las mesas en vez de aparecer 1 en el estado aparezca verde rojo o en mantenimiento segun su estado
 
-eliminar el boton de añadir editar y eliminar en mesas y salas, ya que no se añadiran ni se eliminaran
+falta eliminar reserva y editar
+
+falta solucinar el conflicto de JS
