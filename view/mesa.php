@@ -1,18 +1,11 @@
 <?php
-//MOSTRAR ERRORES
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-
-error_reporting(E_ALL);
-
-
 
 session_start();
 
-if (!isset($_SESSION['nombre'])) {
+if (!isset($_SESSION['nombre']) && !isset($_SESSION['correoadmin'])) {
 
 	header('Location: login.php');
-} elseif (isset($_SESSION['nombre'])) {
+} elseif (isset($_SESSION['nombre']) or isset($_SESSION['correoadmin'])) {
 
 	include '../config/conexion.php';
 	$sentencia = $bd->query("SELECT * FROM tbl_mesa;");
@@ -50,7 +43,7 @@ if (!isset($_SESSION['nombre'])) {
 <body>
 	<div class="nav">
 		<div class="bienvenida">
-			<p>Bienvenido/a: <b><?php echo $_SESSION['nombre'] ?></b></p>
+			<p>Bienvenido/a: <b><?php echo $_SESSION['nombre'];  echo $_SESSION['correoadmin'] ?></b></p>
 		</div>
 		<div class="cerrarsesion">
 			<a href="../controller/cerrarsesion.php">Cerrar Sesión</a>
@@ -65,6 +58,16 @@ if (!isset($_SESSION['nombre'])) {
 					<a href="sala.php"><button class="botones">SALA</button></a>
 					<a href="reserva.php"><button class="botones">RESERVA</button></a>
 					<a href="index.php"><button class="botones">CAMAREROS</button></a>
+					<?php
+					if (!isset($_SESSION['correoadmin'])) {
+
+					} elseif (isset($_SESSION['correoadmin'])) {
+						?><a href="indexadmin.php"><button class="botones">CAMAREROS ADMIN</button></a><?php
+
+					} else {
+						echo "Error en el sistema";
+					}
+					?>
 					<h4>MESAS</h4>
 
 				</div>

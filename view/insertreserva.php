@@ -1,10 +1,10 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['nombre'])) {
+if (!isset($_SESSION['nombre']) && !isset($_SESSION['correoadmin'])) {
 
     header('Location: login.php');
-} elseif (isset($_SESSION['nombre'])) {
+} elseif (isset($_SESSION['nombre']) OR isset($_SESSION['correoadmin'])) {
 
     include '../config/conexion.php';
     $sentencia = $bd->query("SELECT * FROM tbl_reserva;");
@@ -54,7 +54,7 @@ if (!isset($_SESSION['nombre'])) {
 <body>
     <div class="nav">
         <div class="bienvenida">
-            <p>Bienvenido: <b><?php echo $_SESSION['nombre'] ?></b></p>
+            <p>Bienvenido: <b><?php echo $_SESSION['nombre'];  echo $_SESSION['correoadmin'] ?></b></p>
         </div>
         <div class="cerrarsesion">
             <a href="../controller/cerrarsesion.php">Cerrar Sesión</a>
