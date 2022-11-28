@@ -1,5 +1,5 @@
-hoja de visualizacion de reservas y crud
+que no te deje hacer inserts que ya existan y poner estilos a las alertas
 
-falta ajax para borrar 
+hacer validaciones visuales por JS
 
-eliminar el boton de añadir editar y eliminar en mesas y salas, ya que no se añadiran ni se eliminaran
+Hacer que los camareros no puedan editar ni eliminar ni añadir a ellos mismos pero los admins si

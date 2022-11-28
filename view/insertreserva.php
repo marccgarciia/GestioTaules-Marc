@@ -7,7 +7,7 @@ if (!isset($_SESSION['nombre'])) {
 } elseif (isset($_SESSION['nombre'])) {
 
     include '../config/conexion.php';
-    $sentencia = $bd->query("SELECT * FROM tbl_camareros;");
+    $sentencia = $bd->query("SELECT * FROM tbl_reserva;");
     $usuarios = $sentencia->fetchAll(PDO::FETCH_OBJ);
     //print_r($usuarios);
 
@@ -16,7 +16,18 @@ if (!isset($_SESSION['nombre'])) {
 }
 
 
+	$sentencia = $bd->query("SELECT * FROM tbl_mesa;");
+	$mesas = $sentencia->fetchAll(PDO::FETCH_OBJ);
+
+    $sentencia = $bd->query("SELECT * FROM tbl_sala;");
+	$salas = $sentencia->fetchAll(PDO::FETCH_OBJ);
+    
+    
 ?>
+
+
+
+
 <!--::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::--->
 <!--::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::--->
 <!--::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::--->
@@ -57,12 +68,12 @@ if (!isset($_SESSION['nombre'])) {
                     <h4>AÑADIR RESERVA</h4>
                 </div>
                 <div>
-                    <a href="index.php" id="añadir"><i class="fa-solid fa-arrow-left"></i></a>
+                    <a href="reserva.php" id="añadir"><i class="fa-solid fa-arrow-left"></i></a>
                 </div>
             </div>
             <div class="form">
                 <!-- inicio insert -->
-                <form method="POST" action="../controller/controllerinsertreserva.php">
+                <form  action="../controller/controllerinsertreserva.php" method="POST">
                     <table>
                         <tr>
                             <td>Nombre: </td>
@@ -74,7 +85,7 @@ if (!isset($_SESSION['nombre'])) {
                         </tr>
                         <tr>
                             <td>Hora: </td>
-                            <td><input  type="time" name="hora" list="tiempo"placeholder="hora"></td>
+                            <td><input  type="time" name="hora" list="tiempo" placeholder="hora"></td>
                         </tr>
                         <tr>
                             <td>Personas: </td>
@@ -82,17 +93,29 @@ if (!isset($_SESSION['nombre'])) {
                         </tr>
                         <tr>
                             <td>MESA: </td>
-                            <td><input type="text" name="mesa" placeholder="mesa fk"></td>
+                            <td>
+                                <select name="mesa">
+                                <?php foreach ($mesas as $mesa) { ?>
+                                            <option value='<?php echo $mesa->id; ?>'><?php echo $mesa->nombre_m; ?></option>
+                                <?php };?>
+                                </select>
+                            </td>
                         </tr>
                         <tr>
                             <td>SALA: </td>
-                            <td><input type="text" name="sala" placeholder="sala fk"></td>
+                            <td>
+                                <select name="sala">
+                                <?php foreach ($salas as $sala) { ?>
+                                            <option value='<?php echo $sala->id; ?>'><?php echo $sala->nombre_s; ?></option>
+                                <?php };?>
+                                </select>
+                            </td>
                         </tr>
                         <input type="hidden" name="oculto" value="1">
 
                         <tr>
-                            <td><input type="reset" name=""></td>
-                            <td><input type="submit" value="AÑADIR RESERVA"></td>
+                            <td><input class="inputs" type="reset" name=""></td>
+                            <td><input class="inputs" type="submit" value="AÑADIR RESERVA"></td>
                         </tr>
 
                         <datalist id="tiempo">

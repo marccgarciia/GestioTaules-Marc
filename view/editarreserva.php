@@ -11,13 +11,19 @@ if (!isset($_SESSION['nombre'])) {
 	include '../config/conexion.php';
 	$id = $_GET['id'];
 
-	$sentencia = $bd->prepare("SELECT * FROM tbl_camareros WHERE id = ?;");
+	$sentencia = $bd->prepare("SELECT * FROM tbl_reserva WHERE id_reserva = ?;");
 	$sentencia->execute([$id]);
-	$persona = $sentencia->fetch(PDO::FETCH_OBJ);
+	$reserva = $sentencia->fetch(PDO::FETCH_OBJ);
 	//print_r($persona);
 } else {
 	echo "Error en el sistema";
 }
+$sentencia = $bd->query("SELECT * FROM tbl_mesa;");
+$mesas = $sentencia->fetchAll(PDO::FETCH_OBJ);
+
+$sentencia = $bd->query("SELECT * FROM tbl_sala;");
+$salas = $sentencia->fetchAll(PDO::FETCH_OBJ);
+
 
 ?>
 <!--::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::--->
@@ -48,7 +54,7 @@ if (!isset($_SESSION['nombre'])) {
 		<div class="bienvenida">
 			<p>Bienvenido: <b><?php echo $_SESSION['nombre'] ?></b></p>
 		</div>
-		<div class="cerrarsesion">
+		<div  class="cerrarsesion">
 			<a href="../controller/cerrarsesion.php">Cerrar Sesión</a>
 		</div>
 	</div>
@@ -60,31 +66,69 @@ if (!isset($_SESSION['nombre'])) {
 					<h4>EDITAR</h4>
 				</div>
 				<div>
-					<a href="index.php" id="añadir"><i class="fa-solid fa-arrow-left"></i></a>
+					<a href="reserva.php" id="añadir"><i class="fa-solid fa-arrow-left"></i></a>
 				</div>
 			</div>
 			<div class="form">
-				<form method="POST" action="../controller/controllereditar.php">
+				<!-- inicio insert -->
+				<form action="../controller/controllereditarreserva.php" method="POST">
 					<table>
 						<tr>
-							<td>NOMBRE: </td>
-							<td><input type="text" name="nombre" value="<?php echo $persona->nombre; ?>"></td>
+							<td>Nombre: </td>
+							<td><input type="text" name="nombre" placeholder="nombre" value="<?php echo $reserva->nombre; ?>"></td>
 						</tr>
 						<tr>
-							<td>CORREO: </td>
-							<td><input type="text" name="correo" value="<?php echo $persona->correo; ?>"></td>
+							<td>Dia: </td>
+							<td><input type="date" name="dia" placeholder="dia"  value="<?php echo $reserva->dia; ?>"></td>
 						</tr>
 						<tr>
-							<td>CONTRASEÑA: </td>
-							<td><input type="text" name="contrasenya" value="<?php echo $persona->contrasenya; ?>"></td>
+							<td>Hora: </td>
+							<td><input type="time" name="hora" list="tiempo" placeholder="hora" value="<?php echo $reserva->hora; ?>"></td>
 						</tr>
 						<tr>
-							<input type="hidden" name="oculto">
-							<input type="hidden" name="id" value="<?php echo $persona->id; ?>">
-							<td colspan="2"><input class="inputs" type="submit" value="EDITAR"></td>
+							<td>Personas: </td>
+							<td><input type="text" name="personas" placeholder="personas" value="<?php echo $reserva->personas; ?>"></td>
 						</tr>
+						<tr>
+							<td >MESA: - <?php echo $reserva->id_mesa; ?></td>
+							<td>
+								<select name="mesa">
+									<?php foreach ($mesas as $mesa) { ?>
+										<option value='<?php echo $mesa->id; ?>'><?php echo $mesa->nombre_m; ?></option>
+									<?php }; ?>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td>SALA: - <?php echo $reserva->id_sala; ?></td>
+							<td>
+								<select name="sala">
+									<?php foreach ($salas as $sala) { ?>
+										<option value='<?php echo $sala->id; ?>'><?php echo $sala->nombre_s; ?></option>
+									<?php }; ?>
+								</select>
+							</td>
+						</tr>
+						<input type="hidden" name="oculto" value="1">
+						<input type="text" name="id_reserva" value="<?php echo $reserva->id_reserva; ?>">
+						<tr>
+							<td><input class="inputs" type="submit" value="EDITAR RESERVA"></td>
+						</tr>
+
+						<datalist id="tiempo">
+							<option value="12:00">
+							<option value="13:00">
+							<option value="14:00">
+							<option value="15:00">
+							<option value="20:00">
+							<option value="21:00">
+							<option value="22:00">
+							<option value="23:00">
+							<option value="00:00">
+						</datalist>
 					</table>
 				</form>
+				<!-- fin insert-->
 			</div>
 		</div>
 	</div>

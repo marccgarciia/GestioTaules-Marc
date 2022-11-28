@@ -1,0 +1,30 @@
+<script>
+    function Estado() {
+        var seleccion = document.getElementById('estado');
+
+        if (document.getElementById('indice').value = seleccion.selectedIndex == 1) {
+            document.getElementById("texto").style.color = "green";
+            document.getElementById("texto").innerText = "LIBRE";
+
+        } else if (document.getElementById('indice').value = seleccion.selectedIndex == 2) {
+            document.getElementById("texto").style.color = "red";
+            document.getElementById("texto").innerText = "OCUPADO";
+
+        } else if (document.getElementById('indice').value = seleccion.selectedIndex == 3) {
+            document.getElementById("texto").style.color = "yellow";
+            document.getElementById("texto").innerText = "MANTENIMIENTO";
+            document.getElementById("3").style.color = "red";
+
+        }
+    }
+</script>
+
+
+<select id="estado" onChange="Estado()">
+    <option value="">ESTADO</option>
+    <option value="LIBRE">LIBRE</option>
+    <option value="OCUPADO">OCUPADO</option>
+    <option value="MANTENIMIENTO">MANTENIMIENTO</option>
+</select>
+<input type="hidden" id="indice">
+<h1 id="texto"></h1>

@@ -70,7 +70,7 @@ if (!isset($_SESSION['nombre'])) {
 				</div>
 
 				<div>
-					<a href="añadir.php" id="añadir"><i class="fa-solid fa-plus"></i></a>
+					<a href="insertreserva.php" id="añadir"><i class="fa-solid fa-plus"></i></a>
 				</div>
 
 			</div>
@@ -79,23 +79,28 @@ if (!isset($_SESSION['nombre'])) {
 					<input type="text" name="buscar" id="buscar" placeholder="Buscar..." class="">
 				</form>
 			</div>
-			<table class="table table-hover">
-				<tr>
-					<th scope="col">#</th>
-					<th scope="col">NOMBRE</th>
-					<th scope="col">CORREO</th>
-					<th scope="col">CONTRASEÑA</th>
-					<th scope="col">EDITAR</th>
-					<th scope="col">ELIMINAR</th>
-				</tr>
-				<tbody id="resultado">
+			<div class="over">
+				<table class="table table-hover">
+					<tr>
+						<th scope="col">#</th>
+						<th scope="col">NOMBRE</th>
+						<th scope="col">DIA</th>
+						<th scope="col">HORA</th>
+						<th scope="col">PERSONAS</th>
+						<th scope="col">MESA</th>
+						<th scope="col">SALA</th>
+						<th scope="col">OPCIONES</th>
 
-				</tbody>
-			</table>
+					</tr>
+					<tbody id="resultadoreserva">
+
+					</tbody>
+				</table>
+			</div>
 		</div>
 
 	</div>
 </body>
 
 </html>
-<script src="../static/js/index.js"></script>
+<script src="../static/js/reserva.js"></script>

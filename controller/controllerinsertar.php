@@ -8,6 +8,7 @@
 	$correo = $_POST['correo'];
 	$contrasenya = $_POST['contrasenya'];
 
+	if (!empty($nombre && $correo && $correo && $contrasenya) && filter_var($correo, FILTER_VALIDATE_EMAIL)) {
 
 	//$sentencia = $bd->prepare("INSERT INTO tbl_camareros(nombre,correo,contrasenya) VALUES (?,?,?);");
 	$sentencia = $bd->prepare("INSERT INTO `tbl_camareros`(`nombre`, `correo`, `contrasenya`) VALUES (?,?,?)");
@@ -20,4 +21,12 @@
 	}else{
 		echo "Error";
 	}
+
+
+	  } else {
+		echo "¡Campos vacios o E-mail incorrecto!";
+	  }
+
+
+
 ?>
