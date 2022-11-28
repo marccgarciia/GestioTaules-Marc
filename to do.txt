@@ -1,5 +1,14 @@
-que no te deje hacer inserts que ya existan y poner estilos a las alertas
+PONER ESTILOS A alertas
 
-hacer validaciones visuales por JS
+VALIDACIONES POR JS
 
-Hacer que los camareros no puedan editar ni eliminar ni añadir a ellos mismos pero los admins si
+SOLUCIONAR EL TEMA DE EL UPDATE DE ESTADO, FALLA POR LA VARIABLE QUE ES NUMERICA Y NECESITA QUE SEA STRING
+
+HACER QUE SI HAY UNA RESERVA EN LA HORA ACTUAL EN MESAS CAMBIE EL ESTADO
+
+
+
+
+INSERTS Y ELIMINAR DE MESAS (EXTRA)
+
+RESPONSIVE (EXTRA)

@@ -16,7 +16,14 @@
     background-color: white;
     transition: all 0.3s;
 }
-
+#resultadop {
+    font-size: 10px;
+    color: #c32323;
+}
+#resultadom {
+    font-size: 10px;
+    color: #c32323;
+}
 .login:hover{
     background-color: #D2B7A2;
     color: white;
@@ -60,11 +67,26 @@
     margin: 0px 8px;
     font-size: 12px;
 }
+.enviar{
+    padding: 5px;
+    color: black;
+    border: 1px solid #443E53;
+    background-color: white;
+    border-radius: 3px;
+    margin: 0px 0px;
+    font-size: 12px;
+}
+
+.enviar:hover{
+    background-color: #443E53;
+    color: white;
+    transition: all 0.3s;
+}
 
 select {
     background-color: white;
     padding: 5px;
-    margin: 5px;
+    margin: 15px 15px 15px 0px;
     border-radius: 3px;
     font-size: 12px;
 }

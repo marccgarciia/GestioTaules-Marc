@@ -26,7 +26,6 @@
 
 
 
-
 	// if ($datos === FALSE) {
 	// 	header('Location: ../view/login.php');
 	// }elseif($sentencia->rowCount() == 1){

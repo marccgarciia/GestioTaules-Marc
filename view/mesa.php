@@ -30,7 +30,7 @@ if (!isset($_SESSION['nombre']) && !isset($_SESSION['correoadmin'])) {
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Mesa</title>
+	<title>Mesas</title>
 	<!-- BOOTSTRAP only -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 	<!--LINK ESTILOS-->
@@ -43,9 +43,10 @@ if (!isset($_SESSION['nombre']) && !isset($_SESSION['correoadmin'])) {
 <body onload="mueveReloj()">
 	<div class="nav">
 		<div class="bienvenida">
-			<p>Bienvenido/a: <b><?php echo $_SESSION['nombre'];  echo $_SESSION['correoadmin'] ?></b></p>
+			<p>Bienvenido/a: <b><?php echo $_SESSION['nombre'];
+								echo $_SESSION['correoadmin'] ?></b></p>
 			<form name="form_reloj">
-				<?=date("d-m-Y /// ");?><input type="text" name="reloj" size="10" style="border:none;">
+				<?= date("d-m-Y /// "); ?><input type="text" name="reloj" size="10" style="border:none;">
 			</form>
 		</div>
 		<div class="cerrarsesion">
@@ -63,14 +64,13 @@ if (!isset($_SESSION['nombre']) && !isset($_SESSION['correoadmin'])) {
 					<a href="index.php"><button class="botones">CAMAREROS</button></a>
 					<?php
 					if (!isset($_SESSION['correoadmin'])) {
-
 					} elseif (isset($_SESSION['correoadmin'])) {
-						?><a href="indexadmin.php"><button class="botones">CAMAREROS ADMIN</button></a><?php
+					?><a href="indexadmin.php"><button class="botones">CAMAREROS ADMIN</button></a><?php
 
-					} else {
-						echo "Error en el sistema";
-					}
-					?>
+																									} else {
+																										echo "Error en el sistema";
+																									}
+																										?>
 					<h4>MESAS</h4>
 
 				</div>
@@ -80,7 +80,28 @@ if (!isset($_SESSION['nombre']) && !isset($_SESSION['correoadmin'])) {
 				<form autocomplete="off" action="" method="post" id="frmbusqueda">
 					<input type="text" name="buscar" id="buscar" placeholder="Buscar..." class="">
 				</form>
+
+				<form action="" method="POST" id="actualizar" name="actualizar">
+
+					<select name="mesa" id="mesa">
+						<?php
+						$sentencia = $bd->query("SELECT * FROM tbl_mesa");
+						$mesas = $sentencia->fetchAll(PDO::FETCH_OBJ);
+						foreach ($mesas as $mesa) {
+							echo "<option value='$mesa->id'>$mesa->nombre_m</option>";
+						}
+						?>
+					</select>
+
+					<select name="estado" id="estado">
+						<option value="LIBRE">LIBRE</option>
+						<option value="OCUPADO">OCUPADO</option>
+						<option value="MANTENIMIENTO">MANTENIMIENTO</option>
+					</select>
+					<button class="enviar" type="button" id="enviar">Cambiar estado</button>
+				</form>
 			</div>
+
 			<div class="over">
 				<table class="table table-hover" style="text-align:center;">
 					<tr>
@@ -88,7 +109,6 @@ if (!isset($_SESSION['nombre']) && !isset($_SESSION['correoadmin'])) {
 						<th scope="col">NOMBRE</th>
 						<th scope="col">SALA</th>
 						<th scope="col">ESTADO</th>
-						<th scope="col">NUEVO ESTADO</th>
 					</tr>
 					<tbody id="resultadomesa">
 

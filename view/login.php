@@ -23,20 +23,22 @@
     <!--LINK JS-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/2b5286e1aa.js" crossorigin="anonymous"></script>
-	<script src="../static/js/index.js"></script>
+	<script src="../static/js/validaciones.js"></script>
 </head>
 <body>
 	<div class="contenedor">
 		<div class="formulario">
 		<h2>LOGIN</h2>	
 			<form method="POST" action="../controller/logincontroller.php">
-				<input type="email" name="txtUsu" placeholder="Usuario" required>
+				<input type="email" name="txtUsu" placeholder="Usuario" onkeyup="mail(this)" id="correo">
+                <p id='resultadom'></p>
+				<input type="password" name="txtPass" placeholder="Password" onkeyup="password(this)" id="pass">
 				<br>
-				<input type="password" name="txtPass" placeholder="Password" required>
-				<br>
+				<p id='resultadop'></p>
+
 				<input type="submit" value="Iniciar sesión" class="login">
 			</form>
 		</div>
 	</div>
 </body>
-</html>
+</html>	

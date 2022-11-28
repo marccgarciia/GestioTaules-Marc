@@ -26,8 +26,6 @@ if (!isset($_SESSION['nombre']) && !isset($_SESSION['correoadmin'])) {
 ?>
 
 
-
-
 <!--::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::--->
 <!--::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::--->
 <!--::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::--->
@@ -48,7 +46,7 @@ if (!isset($_SESSION['nombre']) && !isset($_SESSION['correoadmin'])) {
     <!--LINK JS-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/2b5286e1aa.js" crossorigin="anonymous"></script>
-    <script src="../static/js/index.js"></script>
+    <script src="../static/js/validaciones.js"></script>
 </head>
 
 <body onload="mueveReloj()">

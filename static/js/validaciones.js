@@ -1,49 +1,35 @@
 //VALIDACIONES MAIL NOMBRE Y CONTRASEÑA ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-function validarEmail(elemento) {
+function mail(elemento) {
 
     var texto = document.getElementById(elemento.id).value;
     var regex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
 
     if (!regex.test(texto)) {
-        document.getElementById("resultadomail").innerText = "correo inválido";
+        document.getElementById("resultadom").innerText = "correo inválido";
     } else {
-        document.getElementById("resultadomail").innerText = "";
+        document.getElementById("resultadom").innerText = "";
     }
 
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////
-function validarNombre(elemento) {
+function password(elemento) {
 
-    var nombre = document.getElementById(elemento.id).value;
+    var texto = document.getElementById(elemento.id).value;
 
-    if (!nombre) {
-        document.getElementById("resultadonombre").innerText = "rellene nombre";
+    if (!texto) {
+        document.getElementById("resultadop").innerText = "rellene la contraseña";
     } else {
-        document.getElementById("resultadonombre").innerText = "";
+        document.getElementById("resultadop").innerText = "";
     }
 
 }
-//////////////////////////////////////////////////////////////////////////////////////////////////
-function validarContrasenya(elemento) {
 
-    var pass = document.getElementById(elemento.id).value;
-
-    if (!pass) {
-        document.getElementById("resultadopass").innerText = "rellene nombre";
-    } else {
-        document.getElementById("resultadopass").innerText = "";
-    }
-
-}
 // RESERVA :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
-
 //////////////////////////////////////////////////////////////////////////////////////////////////
-
 
 // CAMAREROS :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 

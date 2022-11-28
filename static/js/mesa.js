@@ -29,21 +29,26 @@ buscar.addEventListener("keyup", () => {
 
 ListarCrudMesa('');
 
-//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: ESTADO
-function Estado() {
-    var seleccion = document.getElementById('estado');
+//:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+enviar.addEventListener("click", () => {
 
-    if (document.getElementById('indice').value = seleccion.selectedIndex == 1) {
-        document.getElementById("estat").style.color = "#30C437";
-        document.getElementById("estat").innerText = "LIBRE";
+    var actualizar = document.getElementById('actualizar');
 
-    } else if (document.getElementById('indice').value = seleccion.selectedIndex == 2) {
-        document.getElementById("estat").style.color = "#C43030";
-        document.getElementById("estat").innerText = "OCUPADO";
+    const formdata = new FormData(actualizar);
+    formdata.append('estado', estado);
 
-    } else if (document.getElementById('indice').value = seleccion.selectedIndex == 3) {
-        document.getElementById("estat").style.color = "#E8DD36";
-        document.getElementById("estat").innerText = "MANTENIMIENTO";
-
-    }
-}
+    const ajax = new XMLHttpRequest();
+    ajax.open("POST", "../controller/controlleractulizarestado.php");
+    ajax.onload = function() {
+        if (ajax.status === 200) {
+            // console.log(ajax.responseText);
+            if (ajax.responseText == "OK") {
+                alert('Estado Cambiado!');
+                ListarCrudMesa('');
+            }
+        } else {
+            alert('Error');
+        }
+    };
+    ajax.send(formdata);
+});
