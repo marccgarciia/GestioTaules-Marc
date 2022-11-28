@@ -4,9 +4,10 @@ if (!isset($_GET['id'])) {
 	header('Location: index.php');
 }
 
-if (!isset($_SESSION['nombre'])) {
+if (!isset($_SESSION['nombre']) && !isset($_SESSION['correoadmin'])) {
 	header('Location: login.php');
-} elseif (isset($_SESSION['nombre'])) {
+
+} elseif (isset($_SESSION['nombre']) OR isset($_SESSION['correoadmin'])) {
 
 	include '../config/conexion.php';
 	$id = $_GET['id'];
@@ -18,6 +19,7 @@ if (!isset($_SESSION['nombre'])) {
 } else {
 	echo "Error en el sistema";
 }
+
 $sentencia = $bd->query("SELECT * FROM tbl_mesa;");
 $mesas = $sentencia->fetchAll(PDO::FETCH_OBJ);
 
@@ -52,7 +54,7 @@ $salas = $sentencia->fetchAll(PDO::FETCH_OBJ);
 <body>
 	<div class="nav">
 		<div class="bienvenida">
-			<p>Bienvenido: <b><?php echo $_SESSION['nombre'] ?></b></p>
+			<p>Bienvenido: <b><?php echo $_SESSION['nombre'];  echo $_SESSION['correoadmin'] ?></b></p>
 		</div>
 		<div  class="cerrarsesion">
 			<a href="../controller/cerrarsesion.php">Cerrar Sesión</a>
@@ -110,6 +112,7 @@ $salas = $sentencia->fetchAll(PDO::FETCH_OBJ);
 							</td>
 						</tr>
 						<input type="hidden" name="oculto" value="1">
+						<input type="hidden" name="id_reserva" value="<?php echo $reserva->id_reserva; ?>">
 						<tr>
 							<td><input class="inputs" type="submit" value="EDITAR RESERVA"></td>
 						</tr>

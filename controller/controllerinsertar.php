@@ -17,7 +17,7 @@
 
 	if ($resultado === TRUE) {
 		//echo "Insertado correctamente";
-		header('Location: ../view/index.php');
+		header('Location: ../view/indexadmin.php');
 	}else{
 		echo "Error";
 	}

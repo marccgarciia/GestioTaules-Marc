@@ -14,7 +14,7 @@
 	$resultado = $sentencia->execute([$nombre,$correo,$contrasenya, $id]);
 
 	if ($resultado === TRUE) {
-		header('Location: ../view/index.php');
+		header('Location: ../view/indexadmin.php');
 	}else{
 		echo "Error";
 	}

@@ -1,11 +1,10 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['nombre'])) {
-
+if (!isset($_SESSION['nombre']) && !isset($_SESSION['correoadmin'])) {
 	header('Location: login.php');
-} elseif (isset($_SESSION['nombre'])) {
-
+	
+} elseif (isset($_SESSION['nombre']) OR isset($_SESSION['correoadmin'])) {
 	include '../config/conexion.php';
 	$sentencia = $bd->query("SELECT * FROM tbl_camareros;");
 	$usuarios = $sentencia->fetchAll(PDO::FETCH_OBJ);
@@ -42,7 +41,7 @@ if (!isset($_SESSION['nombre'])) {
 <body>
 	<div class="nav">
 		<div class="bienvenida">
-			<p>Bienvenido/a: <b><?php echo $_SESSION['nombre'] ?></b></p>
+			<p>Bienvenido/a: <b><?php echo $_SESSION['nombre'];  echo $_SESSION['correoadmin'] ?></b></p>
 		</div>
 		<div class="cerrarsesion">
 			<a href="../controller/cerrarsesion.php">Cerrar Sesión</a>
@@ -57,14 +56,18 @@ if (!isset($_SESSION['nombre'])) {
 					<a href="mesa.php"><button class="botones">MESA</button></a>
 					<a href="reserva.php"><button class="botones">RESERVA</button></a>
 					<a href="sala.php"><button class="botones">SALA</button></a>
+					<?php
+					if (!isset($_SESSION['correoadmin'])) {
+
+					} elseif (isset($_SESSION['correoadmin'])) {
+						?><a href="indexadmin.php"><button class="botones">CAMAREROS ADMIN</button></a><?php
+
+					} else {
+						echo "Error en el sistema";
+					}
+					?>
 					<h4>CAMAREROS</h4>
-
 				</div>
-
-				<div>
-					<a href="añadir.php" id="añadir"><i class="fa-solid fa-plus"></i></a>
-				</div>
-
 			</div>
 			<div>
 				<form autocomplete="off" action="" method="post" id="frmbusqueda">
@@ -77,8 +80,7 @@ if (!isset($_SESSION['nombre'])) {
 						<th scope="col">#</th>
 						<th scope="col">NOMBRE</th>
 						<th scope="col">CORREO</th>
-						<th scope="col">CONTRASEÑA</th>
-						<th scope="col">OPCIONES</th>
+
 					</tr>
 					<tbody id="resultado">
 

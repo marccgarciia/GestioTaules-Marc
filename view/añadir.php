@@ -1,20 +1,31 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['nombre'])) {
+// if (!isset($_SESSION['nombre'])) {
 
-    header('Location: login.php');
-} elseif (isset($_SESSION['nombre'])) {
+//     header('Location: login.php');
+// } elseif (isset($_SESSION['nombre'])) {
 
-    include '../config/conexion.php';
-    $sentencia = $bd->query("SELECT * FROM tbl_camareros;");
-    $usuarios = $sentencia->fetchAll(PDO::FETCH_OBJ);
-    //print_r($usuarios);
+//     include '../config/conexion.php';
+//     $sentencia = $bd->query("SELECT * FROM tbl_camareros;");
+//     $usuarios = $sentencia->fetchAll(PDO::FETCH_OBJ);
+//     //print_r($usuarios);
+
+// } else {
+//     echo "Error en el sistema";
+// }
+if (!isset($_SESSION['nombre']) && !isset($_SESSION['correoadmin'])) {
+	header('Location: login.php');
+	
+} elseif (isset($_SESSION['nombre']) OR isset($_SESSION['correoadmin'])) {
+	include '../config/conexion.php';
+	$sentencia = $bd->query("SELECT * FROM tbl_camareros;");
+	$usuarios = $sentencia->fetchAll(PDO::FETCH_OBJ);
+	//print_r($usuarios);
 
 } else {
-    echo "Error en el sistema";
+	echo "Error en el sistema";
 }
-
 
 ?>
 <!--::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::--->
@@ -43,7 +54,7 @@ if (!isset($_SESSION['nombre'])) {
 <body>
     <div class="nav">
         <div class="bienvenida">
-            <p>Bienvenido: <b><?php echo $_SESSION['nombre'] ?></b></p>
+            <p>Bienvenido: <b><?php echo $_SESSION['nombre'];  echo $_SESSION['correoadmin'] ?></b></p>
         </div>
         <div class="cerrarsesion">
             <a href="../controller/cerrarsesion.php">Cerrar Sesión</a>
@@ -57,7 +68,7 @@ if (!isset($_SESSION['nombre'])) {
                     <h4>AÑADIR</h4>
                 </div>
                 <div>
-                    <a href="index.php" id="añadir"><i class="fa-solid fa-arrow-left"></i></a>
+                    <a href="indexadmin.php" id="añadir"><i class="fa-solid fa-arrow-left"></i></a>
                 </div>
             </div>
             <div class="form">

@@ -26,6 +26,10 @@ if(empty($_POST['filtro'])){
             <td><?php echo $i++; ?></td>
             <td><?php echo $user->nombre; ?></td>
             <td><?php echo $user->correo; ?></td>
+            <td><?php echo $user->contrasenya; ?></td>
+            <td><button type='button' class='botonedelete' onclick=Eliminar(<?php echo $user->id; ?>)>Eliminar</button>
+            <a href="editar.php?id=<?php echo $user->id; ?>"><button class='botonmodificar' >Editar</button></a>
+
         </tr>
     <?php
     };
