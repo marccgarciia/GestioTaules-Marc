@@ -14,7 +14,10 @@ if(empty($_POST['filtro'])){
 }else{
 
     $filtro=$_POST['filtro'];
-    $sentencia = $bd->query("SELECT * FROM tbl_sala WHERE id LIKE '%".$filtro."%' OR nombre LIKE '%".$filtro."%'");
+    $sentencia = $bd->query("SELECT * FROM `tbl_sala` WHERE 
+    id LIKE '%".$filtro."%'
+    OR nombre_s LIKE '%".$filtro."%'");
+
 	$salas = $sentencia->fetchAll(PDO::FETCH_OBJ);
 }
 
@@ -24,8 +27,7 @@ if(empty($_POST['filtro'])){
         <tr>
             <td><?php echo $i++; ?></td>
             <td><?php echo $sala->nombre_s; ?></td>
-            <td><?php echo $sala->estado; ?></td>
-            <td><?php echo $sala->id_sala; ?></td>
+            <td>----> 20 personas ###</td>
         </tr>
     <?php
     };

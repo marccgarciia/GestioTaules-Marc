@@ -103,4 +103,4 @@ if (!isset($_SESSION['nombre'])) {
 </body>
 
 </html>
-<script src="../static/js/index.js"></script>
+<script src="../static/js/reserva.js"></script>

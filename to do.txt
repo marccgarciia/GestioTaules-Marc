@@ -1,6 +1,5 @@
+que no te deje hacer inserts que ya existan y poner estilos a las alertas
 
-hacer js que en las mesas en vez de aparecer 1 en el estado aparezca verde rojo o en mantenimiento segun su estado
+hacer validaciones visuales por JS
 
-falta eliminar reserva y editar
-
-falta solucinar el conflicto de JS
+Hacer que los camareros no puedan editar ni eliminar ni añadir a ellos mismos pero los admins si

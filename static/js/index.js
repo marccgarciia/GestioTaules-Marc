@@ -31,7 +31,7 @@ ListarCrud('');
 //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: MESA
 function ListarCrudMesa(filtro) {
 
-    let resultado = document.getElementById("resultadomesa");
+    let mesa = document.getElementById("resultadomesa");
 
     let formdata = new FormData();
     formdata.append('filtro', filtro);
@@ -40,9 +40,9 @@ function ListarCrudMesa(filtro) {
     ajax.open('POST', '../controller/controllercrudmesa.php');
     ajax.onload = function() {
         if (ajax.status == 200) {
-            resultado.innerHTML = ajax.responseText;
+            mesa.innerHTML = ajax.responseText;
         } else {
-            resultado.innerText = 'Error';
+            mesa.innerText = 'Error';
         }
     }
     ajax.send(formdata);
@@ -61,7 +61,7 @@ ListarCrudMesa('');
 //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: SALA
 function ListarCrudSala(filtro) {
 
-    let resultado = document.getElementById("resultadosala");
+    let sala = document.getElementById("resultadosala");
 
     let formdata = new FormData();
     formdata.append('filtro', filtro);
@@ -70,9 +70,9 @@ function ListarCrudSala(filtro) {
     ajax.open('POST', '../controller/controllercrudsala.php');
     ajax.onload = function() {
         if (ajax.status == 200) {
-            resultado.innerHTML = ajax.responseText;
+            sala.innerHTML = ajax.responseText;
         } else {
-            resultado.innerText = 'Error';
+            sala.innerText = 'Error';
         }
     }
     ajax.send(formdata);
@@ -91,7 +91,7 @@ ListarCrudSala('');
 //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: RESERVA
 function ListarCrudReserva(filtro) {
 
-    let resultado = document.getElementById("resultadoreserva");
+    let reserva = document.getElementById("resultadoreserva");
 
     let formdata = new FormData();
     formdata.append('filtro', filtro);
@@ -100,9 +100,9 @@ function ListarCrudReserva(filtro) {
     ajax.open('POST', '../controller/controllercrudreserva.php');
     ajax.onload = function() {
         if (ajax.status == 200) {
-            resultado.innerHTML = ajax.responseText;
+            reserva.innerHTML = ajax.responseText;
         } else {
-            resultado.innerText = 'Error';
+            reserva.innerText = 'Error';
         }
     }
     ajax.send(formdata);
@@ -118,6 +118,24 @@ buscar.addEventListener("keyup", () => {
 });
 
 ListarCrudReserva('');
+//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: ESTADO
+function Estado() {
+    var seleccion = document.getElementById('estado');
+
+    if (document.getElementById('indice').value = seleccion.selectedIndex == 1) {
+        document.getElementById("estat").style.color = "#30C437";
+        document.getElementById("estat").innerText = "LIBRE";
+
+    } else if (document.getElementById('indice').value = seleccion.selectedIndex == 2) {
+        document.getElementById("estat").style.color = "#C43030";
+        document.getElementById("estat").innerText = "OCUPADO";
+
+    } else if (document.getElementById('indice').value = seleccion.selectedIndex == 3) {
+        document.getElementById("estat").style.color = "#E8DD36";
+        document.getElementById("estat").innerText = "MANTENIMIENTO";
+
+    }
+}
 //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 function Eliminar(id) {
 
@@ -129,7 +147,7 @@ function Eliminar(id) {
     ajax.onload = function() {
         if (ajax.status === 200) {
             if (ajax.responseText == "OK") {
-                alert('Registro eliminado!');
+                alert('¡Camarero eliminado!');
                 ListarCrud('');
             }
         }
@@ -137,18 +155,17 @@ function Eliminar(id) {
     ajax.send(formdata);
 }
 //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-function EliminarReserva(id) {
+function EliminarReserva(id_reserva) {
 
     const formdata = new FormData();
-    formdata.append('id', id);
-    alert(id);
+    formdata.append('id_reserva', id_reserva);
     
     const ajax = new XMLHttpRequest();
     ajax.open("POST", "../controller/controllereliminarreserva.php");
     ajax.onload = function() {
         if (ajax.status === 200) {
             if (ajax.responseText == "OK") {
-                alert('Registro eliminado!');
+                alert('¡Reserva Eliminada!');
                 ListarCrudReserva('');
             }
         }

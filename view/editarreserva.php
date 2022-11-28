@@ -110,7 +110,7 @@ $salas = $sentencia->fetchAll(PDO::FETCH_OBJ);
 							</td>
 						</tr>
 						<input type="hidden" name="oculto" value="1">
-						<input type="hidden" name="id" value="<?php echo $reserva->id_reserva; ?>">
+						<input type="text" name="id_reserva" value="<?php echo $reserva->id_reserva; ?>">
 						<tr>
 							<td><input class="inputs" type="submit" value="EDITAR RESERVA"></td>
 						</tr>
