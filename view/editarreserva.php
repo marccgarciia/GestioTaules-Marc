@@ -51,10 +51,13 @@ $salas = $sentencia->fetchAll(PDO::FETCH_OBJ);
 	<script src="../static/js/index.js"></script>
 </head>
 
-<body>
+<body onload="mueveReloj()">
 	<div class="nav">
 		<div class="bienvenida">
-			<p>Bienvenido: <b><?php echo $_SESSION['nombre'];  echo $_SESSION['correoadmin'] ?></b></p>
+			<p>Bienvenido/a: <b><?php echo $_SESSION['nombre'];  echo $_SESSION['correoadmin'] ?></b></p>
+			<form name="form_reloj">
+				<?=date("d-m-Y /// ");?><input type="text" name="reloj" size="10" style="border:none;">
+			</form>
 		</div>
 		<div  class="cerrarsesion">
 			<a href="../controller/cerrarsesion.php">Cerrar Sesión</a>
@@ -137,3 +140,4 @@ $salas = $sentencia->fetchAll(PDO::FETCH_OBJ);
 </body>
 
 </html>
+<script src="../static/js/reloj.js"></script>

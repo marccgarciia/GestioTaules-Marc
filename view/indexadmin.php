@@ -38,10 +38,13 @@ if (!isset($_SESSION['correoadmin'])) {
 	<script src="https://kit.fontawesome.com/2b5286e1aa.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body onload="mueveReloj()">
 	<div class="nav">
 		<div class="bienvenida">
 			<p>Bienvenido/a: <b><?php echo $_SESSION['nombre'];  echo $_SESSION['correoadmin'] ?></b></p>
+			<form name="form_reloj">
+				<?=date("d-m-Y /// ");?><input type="text" name="reloj" size="10" style="border:none;">
+			</form>
 		</div>
 		<div class="cerrarsesion">
 			<a href="../controller/cerrarsesion.php">Cerrar Sesión</a>
@@ -90,3 +93,4 @@ if (!isset($_SESSION['correoadmin'])) {
 
 </html>
 <script src="../static/js/camarerosadmin.js"></script>
+<script src="../static/js/reloj.js"></script>
