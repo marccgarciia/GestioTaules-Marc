@@ -9,6 +9,18 @@
     list-style: none;
     box-sizing: border-box;
 }
+.login{
+    color: black;
+    border-radius: 3px;
+    border: 1px solid #D2B7A2;
+    background-color: white;
+    transition: all 0.3s;
+}
+
+.login:hover{
+    background-color: #D2B7A2;
+    color: white;
+}
 
 ::-webkit-scrollbar {
     width: var(--scroll-size, 5px);

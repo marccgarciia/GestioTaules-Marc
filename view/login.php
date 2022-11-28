@@ -34,7 +34,7 @@
 				<br>
 				<input type="password" name="txtPass" placeholder="Password" required>
 				<br>
-				<input type="submit" value="Iniciar sesión">
+				<input type="submit" value="Iniciar sesión" class="login">
 			</form>
 		</div>
 	</div>
