@@ -55,6 +55,7 @@ if (!isset($_SESSION['correoadmin'])) {
 	<div class="general">
 		<div class="crud">
 			<div class="mininav">
+
 				<div>
 
 					<a href="sala.php"><button class="botones">SALA</button></a>
@@ -71,30 +72,50 @@ if (!isset($_SESSION['correoadmin'])) {
 					<a href="añadirmesa.php" id="añadir"><i class="fa-solid fa-plus"></i></a>
 				</div>
 			</div>
-			<div>
-				<form autocomplete="off" action="" method="post" id="frmbusqueda">
-					<input type="text" name="buscar" id="buscar" placeholder="Buscar..." class="">
-				</form>
+			<div class="divgeneral">
+				<div class="buscador">
+					<form autocomplete="off" action="" method="post" id="frmbusqueda">
+						<input type="text" name="buscar" id="buscar" placeholder="Buscar..." class="">
+					</form>
+				</div>
+				<div class="estados">
+					<form action="" method="POST" id="actualizar" name="actualizar">
 
-				<form action="" method="POST" id="actualizar" name="actualizar">
+						<select name="mesa" id="mesa">
+							<?php
+							$sentencia = $bd->query("SELECT * FROM tbl_mesa");
+							$mesas = $sentencia->fetchAll(PDO::FETCH_OBJ);
+							foreach ($mesas as $mesa) {
+								echo "<option value='$mesa->id_m'>$mesa->nombre_m</option>";
+							}
+							?>
+						</select>
 
-					<select name="mesa" id="mesa">
-						<?php
-						$sentencia = $bd->query("SELECT * FROM tbl_mesa");
-						$mesas = $sentencia->fetchAll(PDO::FETCH_OBJ);
-						foreach ($mesas as $mesa) {
-							echo "<option value='$mesa->id_m'>$mesa->nombre_m</option>";
+						<select name="estado" id="estado">
+							<option value="LIBRE">LIBRE</option>
+							<option value="OCUPADO">OCUPADO</option>
+							<option value="MANTENIMIENTO">MANTENIMIENTO</option>
+						</select>
+						<button class="enviar" type="button" id="enviar"><i class="fa-solid fa-check"></i></button>
+					</form>
+				</div>
+			</div>
+			<div class="reservadas">
+					<b class="tituloreser">Reservadas para hoy:</b>
+					<?php
+					$sentenciareserva = $bd->query("SELECT * FROM tbl_reserva INNER JOIN tbl_mesa ON tbl_mesa.id_m = tbl_reserva.id_mesa;");
+					$reservas = $sentenciareserva->fetchAll(PDO::FETCH_OBJ);
+					// Obteniendo la fecha actual del sistema con PHP
+					$fechaActual = date('Y-m-d');
+
+					foreach ($reservas as $reserva) {
+						if ($fechaActual == $reserva->dia) {
+							echo "$reserva->nombre_m - ";
+							echo "$reserva->hora";
+							echo "ㅤ|ㅤ";
 						}
-						?>
-					</select>
-
-					<select name="estado" id="estado">
-						<option value="LIBRE">LIBRE</option>
-						<option value="OCUPADO">OCUPADO</option>
-						<option value="MANTENIMIENTO">MANTENIMIENTO</option>
-					</select>
-					<button class="enviar" type="button" id="enviar">Cambiar estado</button>
-				</form>
+					}
+					?>
 			</div>
 
 			<div class="over">
