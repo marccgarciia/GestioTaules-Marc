@@ -31,8 +31,8 @@ $i = 1;
 foreach ($mesas as $mesa) {
 ?>
     <tr>
-        <td><?php echo $i; ?></td>
-        <td><a class="enlace" href="#openModal<?php echo $i; ?>"><?php echo $mesa->nombre_m; ?></a></td>
+        <td><?php echo $i++; ?></td>
+        <td><a class="enlace" href="#openModal<?php echo $mesa->id_m; ?>"><?php echo $mesa->nombre_m; ?></a></td>
 
         <td>
             <?php
@@ -56,10 +56,10 @@ foreach ($mesas as $mesa) {
         <td>
             <button type='button' class='botonedelete' onclick=Eliminar(<?php echo $mesa->id_m; ?>)>ELIMINAR</button>
         </td>
-        <div id="openModal<?php echo $i; ?>" class="modalDialog">
+        <div id="openModal<?php echo $mesa->id_m; ?>" class="modalDialog">
         <div>
             <a href="#close" title="Close" class="close">X</a>
-            <h2 id="titulo">Mesa <?php echo $i++; ?></h2>
+            <h2 id="titulo"><?php echo $mesa->nombre_m; ?></h2>
             <img class="img" src="data:image/jpg;base64, <?php echo base64_encode($mesa->img); ?>">
         </div>
         
