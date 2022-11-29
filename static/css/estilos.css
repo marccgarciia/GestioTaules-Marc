@@ -14,6 +14,15 @@
     margin: 0px;
     background-color: white;
 }
+.estados{
+    padding: 0px 10px 10px;
+}
+.divgeneral{
+    display:flex;
+}
+.buscador{
+    padding:10px 0px;
+}
 .login{
     color: black;
     border-radius: 3px;
@@ -155,6 +164,16 @@ select:hover{
 #buscar:focus-visible{
     outline-color: #D2B7A2;
 }
+.reservadas{
+    font-size: 15px;
+    color: #c32323;
+    padding: 0px 0px 10px 0px;
+}
+.tituloreser{
+    padding: 0px;
+    margin: 0px;
+    font-size: 12px;
+}
 .contenedor{
     display: flex;
     width: 100%;
@@ -238,6 +257,28 @@ hr{
 /*----------------------------------------------------------------*/
 /*----------------------------------------------------------------*/
 /*----------------------------------------------------------------*/
+@media (max-width: 640px) {
+    select {
+        padding: 2px;
+        margin: 12px 0px 0px 0px;
+        font-size: 9px;
+    }
+    .enviar {
+        padding: 2px;
+        margin: 0px 0px;
+        font-size: 9px;
+    }
+    .reservadas{
+        font-size: 12px;
+        color: #c32323;
+        padding: 0px 0px 10px 0px;
+    }
+    .tituloreser{
+        padding: 0px;
+        margin: 0px;
+        font-size: 10px;
+    }
+}
 
 @media (max-width: 500px) {
     #foto{
@@ -270,6 +311,26 @@ hr{
         font-size: 10px;
         margin: 2px;
         padding: 2px;
+    }
+    select {
+        padding: 2px;
+        margin: 12px 0px 0px 0px;
+        font-size: 9px;
+    }
+    .enviar {
+        padding: 2px;
+        margin: 0px 0px;
+        font-size: 9px;
+    }
+    .reservadas{
+        font-size: 10px;
+        color: #c32323;
+        padding: 0px 0px 10px 0px;
+    }
+    .tituloreser{
+        padding: 0px;
+        margin: 0px;
+        font-size: 10px;
     }
 }
 
@@ -323,5 +384,15 @@ hr{
         font-size: 10px;
         margin: 2px;
         padding: 2px;
+    }
+    select {
+        padding: 2px;
+        margin: 12px 0px 0px 0px;
+        font-size: 6px;
+    }
+    .enviar {
+        padding: 2px;
+        margin: 0px 0px;
+        font-size: 6px;
     }
 }

@@ -8,12 +8,12 @@
 require_once "../config/conexion.php";
 if(empty($_POST['filtro'])){
 
-	$sentencia = $bd->query("SELECT * FROM tbl_reserva INNER JOIN tbl_sala ON tbl_reserva.id_sala = tbl_sala.id;");
+	$sentencia = $bd->query("SELECT * FROM tbl_reserva INNER JOIN tbl_sala ON tbl_reserva.id_sala = tbl_sala.id INNER JOIN tbl_mesa ON tbl_mesa.id_m = tbl_reserva.id_mesa;");
 	$reservas = $sentencia->fetchAll(PDO::FETCH_OBJ);
 
 }else{
     $filtro=$_POST['filtro'];
-    $sentencia = $bd->query("SELECT * FROM tbl_reserva INNER JOIN tbl_sala ON tbl_reserva.id_sala = tbl_sala.id INNER JOIN tbl_mesa ON tbl_reserva.id_sala = tbl_mesa.id_m WHERE nombre LIKE '%".$filtro."%' OR dia LIKE '%".$filtro."%' OR hora LIKE '%".$filtro."%' OR personas LIKE '%".$filtro."%' OR nombre_s LIKE '%".$filtro."%' OR id_mesa LIKE '%".$filtro."%'");
+    $sentencia = $bd->query("SELECT * FROM tbl_reserva INNER JOIN tbl_sala ON tbl_reserva.id_sala = tbl_sala.id INNER JOIN tbl_mesa ON tbl_mesa.id_m = tbl_reserva.id_mesa WHERE nombre LIKE '%".$filtro."%' OR dia LIKE '%".$filtro."%' OR nombre_m LIKE '%".$filtro."%' OR hora LIKE '%".$filtro."%' OR personas LIKE '%".$filtro."%' OR nombre_s LIKE '%".$filtro."%' OR id_mesa LIKE '%".$filtro."%'");
 	$reservas = $sentencia->fetchAll(PDO::FETCH_OBJ);
 }
 
@@ -26,7 +26,7 @@ if(empty($_POST['filtro'])){
             <td><?php echo $reserva->dia; ?></td>
             <td><?php echo $reserva->hora; ?></td>
             <td><?php echo $reserva->personas; ?></td>
-            <td><?php echo $reserva->id_mesa; ?></td>
+            <td><?php echo $reserva->nombre_m;?></td>
             <td><?php echo $reserva->id_sala; echo " - "; echo $reserva->nombre_s;?></td>
             <td><button type='button' class='botonedelete' onclick=EliminarReserva(<?php echo $reserva->id_reserva; ?>)>Eliminar</button>
             <a href="editarreserva.php?id=<?php echo $reserva->id_reserva; ?>"><button class='botonmodificar' >Editar</button></a>
