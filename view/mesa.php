@@ -66,11 +66,11 @@ if (!isset($_SESSION['nombre']) && !isset($_SESSION['correoadmin'])) {
 					if (!isset($_SESSION['correoadmin'])) {
 					} elseif (isset($_SESSION['correoadmin'])) {
 					?><a href="indexadmin.php"><button class="botones">CAMAREROS ADMIN</button></a><?php
-
-																									} else {
-																										echo "Error en el sistema";
-																									}
-																										?>
+					?><a href="mesasadmin.php"><button class="botones">MESAS ADMIN</button></a><?php
+					} else {
+						echo "Error en el sistema";
+					}
+						?>
 					<h4>MESAS</h4>
 
 				</div>
@@ -88,7 +88,7 @@ if (!isset($_SESSION['nombre']) && !isset($_SESSION['correoadmin'])) {
 						$sentencia = $bd->query("SELECT * FROM tbl_mesa");
 						$mesas = $sentencia->fetchAll(PDO::FETCH_OBJ);
 						foreach ($mesas as $mesa) {
-							echo "<option value='$mesa->id'>$mesa->nombre_m</option>";
+							echo "<option value='$mesa->id_m'>$mesa->nombre_m</option>";
 						}
 						?>
 					</select>

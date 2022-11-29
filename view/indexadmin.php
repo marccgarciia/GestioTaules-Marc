@@ -14,7 +14,6 @@ if (!isset($_SESSION['correoadmin'])) {
 	echo "Error en el sistema";
 }
 
-
 ?>
 <!--::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::--->
 <!--::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::--->
@@ -28,7 +27,7 @@ if (!isset($_SESSION['correoadmin'])) {
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Principal</title>
+	<title>Camareros Admin</title>
 	<!-- BOOTSTRAP only -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 	<!--LINK ESTILOS-->
@@ -59,11 +58,13 @@ if (!isset($_SESSION['correoadmin'])) {
 					<a href="reserva.php"><button class="botones">RESERVA</button></a>
 					<a href="sala.php"><button class="botones">SALA</button></a>
 					<a href="index.php"><button class="botones">CAMAREROS</button></a>
-					<h4>CAMAREROS</h4>
+					<a href="mesasadmin.php"><button class="botones">MESAS ADMIN</button></a>
+
+					<h4>CAMAREROS ADMIN</h4>
 				</div>
 
 				<div>
-					<a href="añadir.php" id="añadir"><i class="fa-solid fa-plus"></i></a>
+					<a href="añadirmesa.php" id="añadir"><i class="fa-solid fa-plus"></i></a>
 				</div>
 
 			</div>

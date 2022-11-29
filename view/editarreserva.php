@@ -48,7 +48,6 @@ $salas = $sentencia->fetchAll(PDO::FETCH_OBJ);
 	<!--LINK JS-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://kit.fontawesome.com/2b5286e1aa.js" crossorigin="anonymous"></script>
-	<script src="../static/js/index.js"></script>
 </head>
 
 <body onload="mueveReloj()">
@@ -99,7 +98,7 @@ $salas = $sentencia->fetchAll(PDO::FETCH_OBJ);
 							<td>
 								<select name="mesa">
 									<?php foreach ($mesas as $mesa) { ?>
-										<option value='<?php echo $mesa->id; ?>'><?php echo $mesa->nombre_m; ?></option>
+										<option value='<?php echo $mesa->id_m; ?>'><?php echo $mesa->nombre_m; ?></option>
 									<?php }; ?>
 								</select>
 							</td>

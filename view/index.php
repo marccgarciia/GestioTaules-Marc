@@ -28,7 +28,7 @@ if (!isset($_SESSION['nombre']) && !isset($_SESSION['correoadmin'])) {
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Principal</title>
+	<title>Camareros</title>
 	<!-- BOOTSTRAP only -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 	<!--LINK ESTILOS-->
@@ -66,6 +66,7 @@ if (!isset($_SESSION['nombre']) && !isset($_SESSION['correoadmin'])) {
 
 					} elseif (isset($_SESSION['correoadmin'])) {
 						?><a href="indexadmin.php"><button class="botones">CAMAREROS ADMIN</button></a><?php
+						?><a href="mesasadmin.php"><button class="botones">MESAS ADMIN</button></a><?php
 
 					} else {
 						echo "Error en el sistema";
