@@ -72,12 +72,12 @@ $salas = $sentencia->fetchAll(PDO::FETCH_OBJ);
                     <h4>AÑADIR MESA</h4>
                 </div>
                 <div>
-                    <a href="indexadmin.php" id="añadir"><i class="fa-solid fa-arrow-left"></i></a>
+                    <a href="mesasadmin.php" id="añadir"><i class="fa-solid fa-arrow-left"></i></a>
                 </div>
             </div>
             <div class="form">
                 <!-- inicio insert -->
-                <form method="POST" action="../controller/controllerinsertarmesa.php">
+                <form method="POST" action="../controller/controllerinsertarmesa.php" enctype="multipart/form-data">
                     <table>
                         <tr>
                             <td>Nombre Mesa: </td>
@@ -94,7 +94,7 @@ $salas = $sentencia->fetchAll(PDO::FETCH_OBJ);
                         </tr>
                         <tr>
                             <td>Foto: </td>
-                            <td><input class="file" type="file" name="foto" id="foto"></td>
+                            <td><input type="file" name="foto" id="foto"></td>
                         </tr>
                         <input type="hidden" name="oculto" value="1">
 

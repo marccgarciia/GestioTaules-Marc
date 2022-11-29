@@ -1,5 +1,3 @@
-INSERTAR MESA CON FOTO Y SALA
-
 HACER QUE SI HAY UNA RESERVA EN LA HORA ACTUAL EN MESAS CAMBIE EL ESTADO
 
 ------------------------------------------------------------------------------------------------- EXTRAS

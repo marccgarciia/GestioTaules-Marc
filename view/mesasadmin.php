@@ -68,7 +68,7 @@ if (!isset($_SESSION['correoadmin'])) {
 				</div>
 
 				<div>
-					<a href="añadir.php" id="añadir"><i class="fa-solid fa-plus"></i></a>
+					<a href="añadirmesa.php" id="añadir"><i class="fa-solid fa-plus"></i></a>
 				</div>
 			</div>
 			<div>
