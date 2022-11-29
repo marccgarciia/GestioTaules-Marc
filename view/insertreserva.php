@@ -26,8 +26,6 @@ if (!isset($_SESSION['nombre']) && !isset($_SESSION['correoadmin'])) {
 ?>
 
 
-
-
 <!--::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::--->
 <!--::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::--->
 <!--::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::--->
@@ -48,13 +46,16 @@ if (!isset($_SESSION['nombre']) && !isset($_SESSION['correoadmin'])) {
     <!--LINK JS-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/2b5286e1aa.js" crossorigin="anonymous"></script>
-    <script src="../static/js/index.js"></script>
+    <script src="../static/js/validaciones.js"></script>
 </head>
 
-<body>
+<body onload="mueveReloj()">
     <div class="nav">
         <div class="bienvenida">
-            <p>Bienvenido: <b><?php echo $_SESSION['nombre'];  echo $_SESSION['correoadmin'] ?></b></p>
+            <p>Bienvenido/a: <b><?php echo $_SESSION['nombre'];  echo $_SESSION['correoadmin'] ?></b></p>
+            <form name="form_reloj">
+				<?=date("d-m-Y /// ");?><input type="text" name="reloj" size="10" style="border:none;">
+			</form>
         </div>
         <div class="cerrarsesion">
             <a href="../controller/cerrarsesion.php">Cerrar Sesión</a>
@@ -96,7 +97,7 @@ if (!isset($_SESSION['nombre']) && !isset($_SESSION['correoadmin'])) {
                             <td>
                                 <select name="mesa">
                                 <?php foreach ($mesas as $mesa) { ?>
-                                            <option value='<?php echo $mesa->id; ?>'><?php echo $mesa->nombre_m; ?></option>
+                                            <option value='<?php echo $mesa->id_m; ?>'><?php echo $mesa->nombre_m; ?></option>
                                 <?php };?>
                                 </select>
                             </td>
@@ -138,3 +139,4 @@ if (!isset($_SESSION['nombre']) && !isset($_SESSION['correoadmin'])) {
 </body>
 
 </html>
+<script src="../static/js/reloj.js"></script>

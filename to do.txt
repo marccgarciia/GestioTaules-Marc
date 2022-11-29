@@ -1,5 +1,9 @@
-que no te deje hacer inserts que ya existan y poner estilos a las alertas
+INSERTAR MESA CON FOTO Y SALA
 
-hacer validaciones visuales por JS
+HACER QUE SI HAY UNA RESERVA EN LA HORA ACTUAL EN MESAS CAMBIE EL ESTADO
 
-Hacer que los camareros no puedan editar ni eliminar ni añadir a ellos mismos pero los admins si
+------------------------------------------------------------------------------------------------- EXTRAS
+
+VALIDACIONES POR JS
+
+PONER ESTILOS A alertas

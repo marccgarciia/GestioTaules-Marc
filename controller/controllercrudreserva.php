@@ -13,7 +13,7 @@ if(empty($_POST['filtro'])){
 
 }else{
     $filtro=$_POST['filtro'];
-    $sentencia = $bd->query("SELECT * FROM tbl_reserva INNER JOIN tbl_sala ON tbl_reserva.id_sala = tbl_sala.id INNER JOIN tbl_mesa ON tbl_reserva.id_sala = tbl_mesa.id WHERE nombre LIKE '%".$filtro."%' OR dia LIKE '%".$filtro."%' OR hora LIKE '%".$filtro."%' OR personas LIKE '%".$filtro."%' OR nombre_s LIKE '%".$filtro."%' OR id_mesa LIKE '%".$filtro."%'");
+    $sentencia = $bd->query("SELECT * FROM tbl_reserva INNER JOIN tbl_sala ON tbl_reserva.id_sala = tbl_sala.id INNER JOIN tbl_mesa ON tbl_reserva.id_sala = tbl_mesa.id_m WHERE nombre LIKE '%".$filtro."%' OR dia LIKE '%".$filtro."%' OR hora LIKE '%".$filtro."%' OR personas LIKE '%".$filtro."%' OR nombre_s LIKE '%".$filtro."%' OR id_mesa LIKE '%".$filtro."%'");
 	$reservas = $sentencia->fetchAll(PDO::FETCH_OBJ);
 }
 

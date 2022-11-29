@@ -9,6 +9,11 @@
     list-style: none;
     box-sizing: border-box;
 }
+#foto{
+    font-size: 15px;
+    margin: 0px;
+    background-color: white;
+}
 .login{
     color: black;
     border-radius: 3px;
@@ -16,7 +21,14 @@
     background-color: white;
     transition: all 0.3s;
 }
-
+#resultadop {
+    font-size: 10px;
+    color: #c32323;
+}
+#resultadom {
+    font-size: 10px;
+    color: #c32323;
+}
 .login:hover{
     background-color: #D2B7A2;
     color: white;
@@ -60,11 +72,28 @@
     margin: 0px 8px;
     font-size: 12px;
 }
+.enviar{
+    padding: 5px;
+    color: black;
+    border: 1px solid #443E53;
+    background-color: white;
+    border-radius: 3px;
+    margin: 0px 0px;
+    font-size: 12px;
+}
+#sala{
+    margin: 5px;
+}
+.enviar:hover{
+    background-color: #443E53;
+    color: white;
+    transition: all 0.3s;
+}
 
 select {
     background-color: white;
     padding: 5px;
-    margin: 5px;
+    margin: 15px 15px 15px 0px;
     border-radius: 3px;
     font-size: 12px;
 }
@@ -204,4 +233,95 @@ hr{
 .form input{
     padding: 5px;
     margin: 5px;
+}
+
+/*----------------------------------------------------------------*/
+/*----------------------------------------------------------------*/
+/*----------------------------------------------------------------*/
+
+@media (max-width: 500px) {
+    #foto{
+        font-size: 10px;
+        margin: 0px;
+    }
+    .bienvenida { 
+        font-size: 12px;
+    }
+    .cerrarsesion a {
+        font-size: 12px;
+    }
+    .mininav {
+        font-size: 10px;
+    }
+
+    #buscar{
+        font-size: 10px;
+    }
+    .table{
+        font-size: 10px;
+    }
+    .botonedelete {
+        font-size: 10px;
+        margin: 2px;
+        padding: 2px;
+
+    }
+    .botonmodificar {
+        font-size: 10px;
+        margin: 2px;
+        padding: 2px;
+    }
+}
+
+/*----------------------------------------------------------------*/
+/*----------------------------------------------------------------*/
+/*----------------------------------------------------------------*/
+
+@media (max-width: 380px) {
+    .inputs{
+        font-size: 10px;
+    }
+    #foto{
+        font-size: 8px;
+        margin: 0px;
+    }
+    .bienvenida { 
+        font-size: 12px;
+    }
+    .cerrarsesion a {
+        font-size: 12px;
+    }
+    .mininav {
+        font-size: 10px;
+    }
+
+    #buscar{
+        font-size: 10px;
+    }
+    .table{
+        font-size: 10px;
+    }
+    .table td{
+        padding: 2px;
+    }
+    .botonedelete {
+        font-size: 10px;
+        margin: 2px;
+        padding: 2px;
+    
+    }
+
+     select{
+        font-size: 10px;
+    }
+
+    .enviar{
+        font-size: 8px;
+        padding: 7px 2px;
+    }
+    .botonmodificar {
+        font-size: 10px;
+        margin: 2px;
+        padding: 2px;
+    }
 }

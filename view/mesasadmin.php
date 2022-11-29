@@ -1,13 +1,12 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['nombre']) && !isset($_SESSION['correoadmin'])) {
-
+if (!isset($_SESSION['correoadmin'])) {
 	header('Location: login.php');
-} elseif (isset($_SESSION['nombre']) OR isset($_SESSION['correoadmin'])) {
-
+	
+} elseif (isset($_SESSION['correoadmin'])) {
 	include '../config/conexion.php';
-	$sentencia = $bd->query("SELECT * FROM tbl_sala;");
+	$sentencia = $bd->query("SELECT * FROM tbl_camareros;");
 	$usuarios = $sentencia->fetchAll(PDO::FETCH_OBJ);
 	//print_r($usuarios);
 
@@ -29,7 +28,7 @@ if (!isset($_SESSION['nombre']) && !isset($_SESSION['correoadmin'])) {
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Salas</title>
+	<title>Mesas Admin</title>
 	<!-- BOOTSTRAP only -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 	<!--LINK ESTILOS-->
@@ -42,9 +41,10 @@ if (!isset($_SESSION['nombre']) && !isset($_SESSION['correoadmin'])) {
 <body onload="mueveReloj()">
 	<div class="nav">
 		<div class="bienvenida">
-			<p>Bienvenido/a: <b><?php echo $_SESSION['nombre'];  echo $_SESSION['correoadmin'] ?></b></p>
+			<p>Bienvenido/a: <b><?php echo $_SESSION['nombre'];
+								echo $_SESSION['correoadmin'] ?></b></p>
 			<form name="form_reloj">
-				<?=date("d-m-Y /// ");?><input type="text" name="reloj" size="10" style="border:none;">
+				<?= date("d-m-Y /// "); ?><input type="text" name="reloj" size="10" style="border:none;">
 			</form>
 		</div>
 		<div class="cerrarsesion">
@@ -56,46 +56,69 @@ if (!isset($_SESSION['nombre']) && !isset($_SESSION['correoadmin'])) {
 		<div class="crud">
 			<div class="mininav">
 				<div>
-					<a href="mesa.php"><button class="botones">MESA</button></a>
+
+					<a href="sala.php"><button class="botones">SALA</button></a>
 					<a href="reserva.php"><button class="botones">RESERVA</button></a>
 					<a href="index.php"><button class="botones">CAMAREROS</button></a>
-					<?php
-					if (!isset($_SESSION['correoadmin'])) {
+					<a href="mesa.php"><button class="botones">MESAS</button></a>
+					<a href="indexadmin.php"><button class="botones">CAMAREROS ADMIN</button></a>
+	
+					<h4>MESAS ADMIN</h4>
 
-					} elseif (isset($_SESSION['correoadmin'])) {
-						?><a href="indexadmin.php"><button class="botones">CAMAREROS ADMIN</button></a><?php
-						?><a href="mesasadmin.php"><button class="botones">MESAS ADMIN</button></a><?php
+				</div>
 
-					} else {
-						echo "Error en el sistema";
-					}
-					?>
-					<h4>SALAS</h4>
-
+				<div>
+					<a href="añadir.php" id="añadir"><i class="fa-solid fa-plus"></i></a>
 				</div>
 			</div>
 			<div>
 				<form autocomplete="off" action="" method="post" id="frmbusqueda">
 					<input type="text" name="buscar" id="buscar" placeholder="Buscar..." class="">
 				</form>
+
+				<form action="" method="POST" id="actualizar" name="actualizar">
+
+					<select name="mesa" id="mesa">
+						<?php
+						$sentencia = $bd->query("SELECT * FROM tbl_mesa");
+						$mesas = $sentencia->fetchAll(PDO::FETCH_OBJ);
+						foreach ($mesas as $mesa) {
+							echo "<option value='$mesa->id_m'>$mesa->nombre_m</option>";
+						}
+						?>
+					</select>
+
+					<select name="estado" id="estado">
+						<option value="LIBRE">LIBRE</option>
+						<option value="OCUPADO">OCUPADO</option>
+						<option value="MANTENIMIENTO">MANTENIMIENTO</option>
+					</select>
+					<button class="enviar" type="button" id="enviar">Cambiar estado</button>
+				</form>
 			</div>
+
 			<div class="over">
-				<table class="table table-hover">
+				<table class="table table-hover" style="text-align:center;">
 					<tr>
 						<th scope="col">#</th>
 						<th scope="col">NOMBRE</th>
-						<th scope="col">OCUPACIÓN</th>
+						<th scope="col">SALA</th>
+						<th scope="col">ESTADO</th>
+						<th scope="col">ELIMINAR</th>
 					</tr>
-					<tbody id="resultadosala">
+					<tbody id="resultadomesa">
+
 
 					</tbody>
 				</table>
 			</div>
+
 		</div>
 
 	</div>
 </body>
 
 </html>
-<script src="../static/js/sala.js"></script>
+
+<script src="../static/js/mesasadmin.js"></script>
 <script src="../static/js/reloj.js"></script>

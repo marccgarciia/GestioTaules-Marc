@@ -1,18 +1,18 @@
-//:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-function ListarCrudMesa(filtro) {
+//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: CAMAREROS
+function ListarCrud(filtro) {
 
-    let mesa = document.getElementById("resultadomesa");
+    let resultado = document.getElementById("resultadomesa");
 
     let formdata = new FormData();
     formdata.append('filtro', filtro);
 
     const ajax = new XMLHttpRequest();
-    ajax.open('POST', '../controller/controllercrudmesa.php');
+    ajax.open('POST', '../controller/controllercrudmesasadmin.php');
     ajax.onload = function() {
         if (ajax.status == 200) {
-            mesa.innerHTML = ajax.responseText;
+            resultado.innerHTML = ajax.responseText;
         } else {
-            mesa.innerText = 'Error';
+            resultado.innerText = 'Error';
         }
     }
     ajax.send(formdata);
@@ -21,14 +21,31 @@ function ListarCrudMesa(filtro) {
 buscar.addEventListener("keyup", () => {
     const filtro = buscar.value;
     if (filtro == "") {
-        ListarCrudMesa('');
+        ListarCrud('');
     } else {
-        ListarCrudMesa(filtro);
+        ListarCrud(filtro);
     }
 });
 
-ListarCrudMesa('');
+ListarCrud('');
+//:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+function Eliminar(id_m) {
 
+    const formdata = new FormData();
+    formdata.append('id_m', id_m);
+
+    const ajax = new XMLHttpRequest();
+    ajax.open("POST", "../controller/controllereliminarmesa.php");
+    ajax.onload = function() {
+        if (ajax.status === 200) {
+            if (ajax.responseText == "OK") {
+                alert('Mesa eliminada!');
+                ListarCrud('');
+            }
+        }
+    };
+    ajax.send(formdata);
+}
 //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 enviar.addEventListener("click", () => {
 
@@ -44,7 +61,7 @@ enviar.addEventListener("click", () => {
             // console.log(ajax.responseText);
             if (ajax.responseText == "OK") {
                 alert('Estado Cambiado!');
-                ListarCrudMesa('');
+                ListarCrud('');
             }
         } else {
             alert('Error');

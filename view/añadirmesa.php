@@ -26,6 +26,8 @@ if (!isset($_SESSION['nombre']) && !isset($_SESSION['correoadmin'])) {
 } else {
 	echo "Error en el sistema";
 }
+$sentencia = $bd->query("SELECT * FROM tbl_sala;");
+$salas = $sentencia->fetchAll(PDO::FETCH_OBJ);
 
 ?>
 <!--::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::--->
@@ -40,7 +42,7 @@ if (!isset($_SESSION['nombre']) && !isset($_SESSION['correoadmin'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Añadir Mesa</title>
     <!-- BOOTSTRAP only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <!--LINK ESTILOS-->
@@ -48,7 +50,6 @@ if (!isset($_SESSION['nombre']) && !isset($_SESSION['correoadmin'])) {
     <!--LINK JS-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/2b5286e1aa.js" crossorigin="anonymous"></script>
-    <script src="../static/js/index.js"></script>
 </head>
 
 <body onload="mueveReloj()">
@@ -68,7 +69,7 @@ if (!isset($_SESSION['nombre']) && !isset($_SESSION['correoadmin'])) {
         <div class="crud">
             <div class="mininav">
                 <div>
-                    <h4>AÑADIR</h4>
+                    <h4>AÑADIR MESA</h4>
                 </div>
                 <div>
                     <a href="indexadmin.php" id="añadir"><i class="fa-solid fa-arrow-left"></i></a>
@@ -76,25 +77,30 @@ if (!isset($_SESSION['nombre']) && !isset($_SESSION['correoadmin'])) {
             </div>
             <div class="form">
                 <!-- inicio insert -->
-                <form method="POST" action="../controller/controllerinsertar.php">
+                <form method="POST" action="../controller/controllerinsertarmesa.php">
                     <table>
                         <tr>
-                            <td>Nombre: </td>
-                            <td><input type="text" name="nombre" placeholder="nombre"></td>
+                            <td>Nombre Mesa: </td>
+                            <td><input type="text" name="nombre" placeholder="nombre mesa"></td>
                         </tr>
                         <tr>
-                            <td>Correo: </td>
-                            <td><input type="text" name="correo" placeholder="correo"></td>
+                            <td>Sala: </td>
+                            <td>
+                                <select name="sala" id="sala">
+                                <?php foreach ($salas as $sala) { ?>
+                                        <option value='<?php echo $sala->id; ?>'><?php echo $sala->nombre_s; ?></option>
+                                <?php };?>                           
+                             </td>
                         </tr>
                         <tr>
-                            <td>Contraseña: </td>
-                            <td><input type="text" name="contrasenya" placeholder="contrasenya"></td>
+                            <td>Foto: </td>
+                            <td><input class="file" type="file" name="foto" id="foto"></td>
                         </tr>
                         <input type="hidden" name="oculto" value="1">
 
                         <tr>
                             <td><input class="inputs" type="reset" name=""></td>
-                            <td><input class="inputs" type="submit" value="AÑADIR"></td>
+                            <td><input class="inputs" type="submit" value="AÑADIR MESA"></td>
                         </tr>
                     </table>
                 </form>

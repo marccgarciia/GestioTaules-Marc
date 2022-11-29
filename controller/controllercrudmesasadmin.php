@@ -53,7 +53,9 @@ foreach ($mesas as $mesa) {
             }
             ?>  
         </td>
-
+        <td>
+            <button type='button' class='botonedelete' onclick=Eliminar(<?php echo $mesa->id_m; ?>)>ELIMINAR</button>
+        </td>
         <div id="openModal<?php echo $i; ?>" class="modalDialog">
         <div>
             <a href="#close" title="Close" class="close">X</a>
