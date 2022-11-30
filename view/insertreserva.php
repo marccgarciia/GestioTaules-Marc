@@ -47,6 +47,7 @@ if (!isset($_SESSION['nombre']) && !isset($_SESSION['correoadmin'])) {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/2b5286e1aa.js" crossorigin="anonymous"></script>
     <script src="../static/js/validaciones.js"></script>
+    <link rel="icon" type="image/png" href="../static/img/logo.png"/>
 </head>
 
 <body onload="mueveReloj()">
