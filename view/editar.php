@@ -65,6 +65,9 @@ if (!isset($_SESSION['nombre']) && !isset($_SESSION['correoadmin'])) {
 				<?=date("d-m-Y /// ");?><input type="text" name="reloj" size="10" style="border:none;">
 			</form>
 		</div>
+		<div class="logodiv">
+			<img src="../static/img/logo.png" alt="Logo" class="logo">
+		</div>
 		<div class="cerrarsesion">
 			<a href="../controller/cerrarsesion.php">Cerrar Sesión</a>
 		</div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 30-11-2022 a las 12:42:09
+-- Tiempo de generación: 30-11-2022 a las 14:38:58
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -18,10 +18,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `bd_gestiotaulesmarc`
+-- Base de datos: `2223_garciacuevasmarc`
 --
-CREATE DATABASE IF NOT EXISTS `bd_gestiotaulesmarc` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `bd_gestiotaulesmarc`;
+CREATE DATABASE IF NOT EXISTS `2223_garciacuevasmarc` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `2223_garciacuevasmarc`;
 
 -- --------------------------------------------------------
 
@@ -214,7 +214,7 @@ ALTER TABLE `tbl_admin`
 -- AUTO_INCREMENT de la tabla `tbl_camareros`
 --
 ALTER TABLE `tbl_camareros`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_mesa`
