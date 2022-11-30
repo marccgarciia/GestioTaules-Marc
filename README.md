@@ -1,9 +1,7 @@
-# GestioTaules-Marc
-Projecte de millora individual del projecte de Gestió Taules d'un bar
-
 # Gestió Taules 🌍
 
-© Projecte de DAW - Marc
+Projecte de millora individual del projecte de Gestió Taules d'un bar
+© Projecte de DAW - Marc 2022
 
 ## Introducció 💻
 
