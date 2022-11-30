@@ -18,7 +18,8 @@ if (!empty($nombre && $sala)) {
 
     if ($resultado === TRUE) {
         //echo "Insertado correctamente";
-        header('Location: ../view/mesasadmin.php');
+        //header('Location: ../view/mesasadmin.php');
+        echo "OK";
     } else {
         echo "Error";
     }

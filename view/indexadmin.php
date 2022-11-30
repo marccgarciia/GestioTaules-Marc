@@ -64,7 +64,7 @@ if (!isset($_SESSION['correoadmin'])) {
 				</div>
 
 				<div>
-					<a href="añadirmesa.php" id="añadir"><i class="fa-solid fa-plus"></i></a>
+					<a href="añadir.php" id="añadir"><i class="fa-solid fa-plus"></i></a>
 				</div>
 
 			</div>
@@ -95,3 +95,4 @@ if (!isset($_SESSION['correoadmin'])) {
 </html>
 <script src="../static/js/camarerosadmin.js"></script>
 <script src="../static/js/reloj.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

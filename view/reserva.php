@@ -110,3 +110,4 @@ if (!isset($_SESSION['nombre']) && !isset($_SESSION['correoadmin'])) {
 </html>
 <script src="../static/js/reserva.js"></script>
 <script src="../static/js/reloj.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

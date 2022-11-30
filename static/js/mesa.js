@@ -43,7 +43,14 @@ enviar.addEventListener("click", () => {
         if (ajax.status === 200) {
             // console.log(ajax.responseText);
             if (ajax.responseText == "OK") {
-                alert('Estado Cambiado!');
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: '¡Estado cambiado!',
+                    showConfirmButton: false,
+                    timer: 1500,
+                    padding: '10px'
+                    });               
                 ListarCrudMesa('');
             }
         } else {
@@ -52,25 +59,3 @@ enviar.addEventListener("click", () => {
     };
     ajax.send(formdata);
 });
-//:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-//:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-//:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-// var intervalo = setInterval(comparacion, 1000);
-
-// function comparacion(){
-//     // coger la fecha actual
-//     var dia = (new Date()).getDate();
-//     var mes = (new Date()).getMonth();
-//     var anyo = (new Date()).getFullYear();
-//     var fecha = anyo + '-' + mes + '-' + dia;
-
-//     console.log(fecha);
-
-//     // coger la hora actual
-//     var hour = (new Date()).getHours();
-//     const cero = ":00";
-//     var hora = hour + cero;
-    
-//     console.log(hora);
-
-// }

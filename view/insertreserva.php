@@ -74,7 +74,7 @@ if (!isset($_SESSION['nombre']) && !isset($_SESSION['correoadmin'])) {
             </div>
             <div class="form">
                 <!-- inicio insert -->
-                <form  action="../controller/controllerinsertreserva.php" method="POST">
+                <form  action="" method="POST" id="frm">
                     <table>
                         <tr>
                             <td>Nombre: </td>
@@ -116,7 +116,7 @@ if (!isset($_SESSION['nombre']) && !isset($_SESSION['correoadmin'])) {
 
                         <tr>
                             <td><input class="inputs" type="reset" name=""></td>
-                            <td><input class="inputs" type="submit" value="AÑADIR RESERVA"></td>
+                            <td><input onclick="crear()" class="inputs" type="button" value="AÑADIR RESERVA"></td>
                         </tr>
 
                         <datalist id="tiempo">
@@ -140,3 +140,5 @@ if (!isset($_SESSION['nombre']) && !isset($_SESSION['correoadmin'])) {
 
 </html>
 <script src="../static/js/reloj.js"></script>
+<script src="../static/js/insertreserva.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

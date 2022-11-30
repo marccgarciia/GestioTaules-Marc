@@ -17,14 +17,16 @@
 
 	if ($resultado === TRUE) {
 		//echo "Insertado correctamente";
-		header('Location: ../view/indexadmin.php');
+		//header('Location: ../view/indexadmin.php');
+		echo "OK";
+
 	}else{
 		echo "Error";
 	}
 
 
 	  } else {
-		echo "¡Campos vacios o E-mail incorrecto!";
+		echo "<script>alert('¡Campos vacios o E-mail incorrecto!')</script>";
 	  }
 
 

@@ -143,3 +143,4 @@ if (!isset($_SESSION['correoadmin'])) {
 
 <script src="../static/js/mesasadmin.js"></script>
 <script src="../static/js/reloj.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

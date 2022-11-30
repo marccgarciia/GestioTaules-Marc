@@ -77,7 +77,7 @@ $salas = $sentencia->fetchAll(PDO::FETCH_OBJ);
             </div>
             <div class="form">
                 <!-- inicio insert -->
-                <form method="POST" action="../controller/controllerinsertarmesa.php" enctype="multipart/form-data">
+                <form method="POST" action="" enctype="multipart/form-data" id="frm">
                     <table>
                         <tr>
                             <td>Nombre Mesa: </td>
@@ -100,7 +100,7 @@ $salas = $sentencia->fetchAll(PDO::FETCH_OBJ);
 
                         <tr>
                             <td><input class="inputs" type="reset" name=""></td>
-                            <td><input class="inputs" type="submit" value="AÑADIR MESA"></td>
+                            <td><input onclick="crear()" class="inputs" type="button" value="AÑADIR MESA"></td>
                         </tr>
                     </table>
                 </form>
@@ -112,3 +112,5 @@ $salas = $sentencia->fetchAll(PDO::FETCH_OBJ);
 
 </html>
 <script src="../static/js/reloj.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script src="../static/js/insertmesa.js"></script>

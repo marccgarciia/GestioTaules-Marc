@@ -39,7 +39,14 @@ function Eliminar(id_m) {
     ajax.onload = function() {
         if (ajax.status === 200) {
             if (ajax.responseText == "OK") {
-                alert('Mesa eliminada!');
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: '¡Mesa Eliminada!',
+                    showConfirmButton: false,
+                    timer: 1500,
+                    padding: '10px'
+                    });                
                 ListarCrud('');
             }
         }
@@ -60,7 +67,14 @@ enviar.addEventListener("click", () => {
         if (ajax.status === 200) {
             // console.log(ajax.responseText);
             if (ajax.responseText == "OK") {
-                alert('Estado Cambiado!');
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: '¡Estado cambiado!',
+                    showConfirmButton: false,
+                    timer: 1500,
+                    padding: '10px'
+                    });
                 ListarCrud('');
             }
         } else {
