@@ -15,6 +15,7 @@
     background-color: white;
 }
 
+
 .popup-class{
     border-radius: 0px;
 }
@@ -214,6 +215,15 @@ select:hover{
     margin: 20px 40px;
     font-size: 18px;
 }
+.logodiv{
+    position: absolute;
+    left: 310px;
+    top: 25px;
+}
+
+.logo {
+    width: 50px;
+}
 
 .bienvenida p{
     padding: 0px;
@@ -282,6 +292,10 @@ hr{
         margin: 0px;
         font-size: 10px;
     }
+    
+    .logo {
+        width: 38px;
+    }
 }
 
 @media (max-width: 500px) {
@@ -335,6 +349,15 @@ hr{
         padding: 0px;
         margin: 0px;
         font-size: 10px;
+    }
+    .logodiv{
+        position: absolute;
+        left: 218px;
+        top: 25px;
+    }
+    
+    .logo {
+        width: 35px;
     }
 }
 
@@ -398,5 +421,14 @@ hr{
         padding: 2px;
         margin: 0px 0px;
         font-size: 6px;
+    }
+    .logodiv{
+        position: absolute;
+        left: 172px;
+        top: 37px;
+    }
+    
+    .logo {
+        width: 25px;
     }
 }

@@ -29,6 +29,8 @@
 <body>
 	<div class="contenedor">
 		<div class="formulario">
+		<img src="../static/img/logo.png" alt="Logo" class="logo">
+
 		<h2>LOGIN</h2>	
 			<form method="POST" action="../controller/logincontroller.php">
 				<input type="email" name="txtUsu" placeholder="Usuario" onkeyup="mail(this)" id="correo">
