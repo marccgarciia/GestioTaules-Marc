@@ -39,7 +39,14 @@ function Eliminar(id) {
     ajax.onload = function() {
         if (ajax.status === 200) {
             if (ajax.responseText == "OK") {
-                alert('¡Camarero eliminado!');
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: '¡Camarero/a eliminado!',
+                    showConfirmButton: false,
+                    timer: 1500,
+                    padding: '10px'
+                    });
                 ListarCrud('');
             }
         }

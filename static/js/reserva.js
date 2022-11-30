@@ -39,7 +39,14 @@ function EliminarReserva(id_reserva) {
     ajax.onload = function() {
         if (ajax.status === 200) {
             if (ajax.responseText == "OK") {
-                alert('¡Reserva Eliminada!');
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: '¡Reserva eliminada!',
+                    showConfirmButton: false,
+                    timer: 1500,
+                    padding: '10px'
+                    });
                 ListarCrudReserva('');
             }
         }

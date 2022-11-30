@@ -145,3 +145,4 @@ if (!isset($_SESSION['nombre']) && !isset($_SESSION['correoadmin'])) {
 
 <script src="../static/js/mesa.js"></script>
 <script src="../static/js/reloj.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

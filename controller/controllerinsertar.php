@@ -24,7 +24,7 @@
 
 
 	  } else {
-		echo "¡Campos vacios o E-mail incorrecto!";
+		echo "<script>alert('¡Campos vacios o E-mail incorrecto!')</script>";
 	  }
 
 
