@@ -5,7 +5,7 @@ function crear() {
 
     const ajax = new XMLHttpRequest();
     console.log(ajax);
-    ajax.open("POST", "../controller/controllerinsertreserva.php");
+    ajax.open("POST", "../controller/controllerinsertar.php");
 
     ajax.onload = function() {
         if (ajax.status === 200) {
@@ -14,7 +14,7 @@ function crear() {
                 Swal.fire({
                     position: 'top-end',
                     icon: 'success',
-                    title: '¡Reserva insertada!',
+                    title: 'Camarero/a insertado/a!',
                     showConfirmButton: false,
                     timer: 1500,
                     padding: '10px'

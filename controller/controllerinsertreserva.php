@@ -34,10 +34,11 @@ if (!empty($nombre && $dia && $hora && $personas && $mesa && $sala)) {
 		$resultado = $sentencia->execute();
 	
 		if ($resultado) {
-			//echo "OK";
-			header('Location: ../view/reserva.php');
+			echo "OK";
+			//header('Location: ../view/reserva.php');
 		} else {
-			echo "<script>alert('¡ERROR EN EL INSERT!')</script>";
+			//echo "<script>alert('¡ERROR EN EL INSERT!')</script>";
+			echo "Error";
 		}
 	}
 

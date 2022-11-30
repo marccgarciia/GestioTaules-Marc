@@ -48,7 +48,6 @@ if (!isset($_SESSION['nombre']) && !isset($_SESSION['correoadmin'])) {
     <!--LINK JS-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/2b5286e1aa.js" crossorigin="anonymous"></script>
-    <script src="../static/js/index.js"></script>
 </head>
 
 <body onload="mueveReloj()">
@@ -76,7 +75,7 @@ if (!isset($_SESSION['nombre']) && !isset($_SESSION['correoadmin'])) {
             </div>
             <div class="form">
                 <!-- inicio insert -->
-                <form method="POST" action="../controller/controllerinsertar.php">
+                <form method="POST" action="" id="frm">
                     <table>
                         <tr>
                             <td>Nombre: </td>
@@ -94,7 +93,7 @@ if (!isset($_SESSION['nombre']) && !isset($_SESSION['correoadmin'])) {
 
                         <tr>
                             <td><input class="inputs" type="reset" name=""></td>
-                            <td><input class="inputs" type="submit" value="AÑADIR"></td>
+                            <td><input onclick="crear()" class="inputs" type="button" value="AÑADIR"></td>
                         </tr>
                     </table>
                 </form>
@@ -106,3 +105,6 @@ if (!isset($_SESSION['nombre']) && !isset($_SESSION['correoadmin'])) {
 
 </html>
 <script src="../static/js/reloj.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script src="../static/js/añadir.js"></script>
+
