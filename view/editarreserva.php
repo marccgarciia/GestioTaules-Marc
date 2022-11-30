@@ -12,12 +12,13 @@ if (!isset($_SESSION['nombre']) && !isset($_SESSION['correoadmin'])) {
 	include '../config/conexion.php';
 	$id = $_GET['id'];
 
-	$sentencia = $bd->prepare("SELECT * FROM tbl_reserva WHERE id_reserva = ?;");
+	$sentencia = $bd->prepare("SELECT * FROM tbl_reserva INNER JOIN tbl_mesa ON tbl_mesa.id_m = tbl_reserva.id_mesa INNER JOIN tbl_sala ON tbl_sala.id = tbl_reserva.id_sala
+	WHERE id_reserva = ?;");
 	$sentencia->execute([$id]);
 	$reserva = $sentencia->fetch(PDO::FETCH_OBJ);
 	//print_r($persona);
 } else {
-	echo "Error en el sistema";
+	echo "Error en el sistema";		
 }
 
 $sentencia = $bd->query("SELECT * FROM tbl_mesa;");
@@ -94,7 +95,7 @@ $salas = $sentencia->fetchAll(PDO::FETCH_OBJ);
 							<td><input type="text" name="personas" placeholder="personas" value="<?php echo $reserva->personas; ?>"></td>
 						</tr>
 						<tr>
-							<td >MESA: - <?php echo $reserva->id_mesa; ?></td>
+							<td><b><?php echo $reserva->nombre_m; ?></b></td>
 							<td>
 								<select name="mesa">
 									<?php foreach ($mesas as $mesa) { ?>
@@ -104,7 +105,7 @@ $salas = $sentencia->fetchAll(PDO::FETCH_OBJ);
 							</td>
 						</tr>
 						<tr>
-							<td>SALA: - <?php echo $reserva->id_sala; ?></td>
+							<td><b><?php echo $reserva->nombre_s; ?></b></td>
 							<td>
 								<select name="sala">
 									<?php foreach ($salas as $sala) { ?>
