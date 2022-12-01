@@ -7,7 +7,7 @@ function crear() {
     console.log(ajax);
     ajax.open("POST", "../controller/controllerinsertar.php");
 
-    ajax.onload = function() {
+    ajax.onload = function () {
         if (ajax.status === 200) {
             // console.log(ajax.responseText);
             if (ajax.responseText == "OK") {
@@ -15,6 +15,15 @@ function crear() {
                     position: 'top-end',
                     icon: 'success',
                     title: 'Camarero/a insertado/a!',
+                    showConfirmButton: false,
+                    timer: 1500,
+                    padding: '10px'
+                });
+            } else {
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'error',
+                    title: '¡Campos vacios o mail incorrecto!',
                     showConfirmButton: false,
                     timer: 1500,
                     padding: '10px'

@@ -19,6 +19,15 @@ function crear() {
                     timer: 1500,
                     padding: '10px'
                 });
+            } else {
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'error',
+                    title: '¡Campos vacios o fecha y hora incorrecta!',
+                    showConfirmButton: false,
+                    timer: 1500,
+                    padding: '10px'
+                });
             }
         } else {
             alert('Error');
