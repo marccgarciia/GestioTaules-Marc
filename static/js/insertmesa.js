@@ -21,7 +21,14 @@ function crear() {
                 });
             }
         } else {
-            alert('Error');
+            Swal.fire({
+                position: 'top-end',
+                icon: 'error',
+                title: '¡Campos vacios!',
+                showConfirmButton: false,
+                timer: 1500,
+                padding: '10px'
+            });
         }
     };
     ajax.send(formdata);
